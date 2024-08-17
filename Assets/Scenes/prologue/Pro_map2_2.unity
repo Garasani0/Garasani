@@ -14422,6 +14422,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {fileID: 0}
+  cameraSpeed: 1
+  targetPosition: {x: 0, y: 0, z: 0}
 --- !u!81 &1029667678
 AudioListener:
   m_ObjectHideFlags: 0
@@ -29655,9 +29657,9 @@ SceneRoots:
   - {fileID: 36072642}
   - {fileID: 1464138301}
   - {fileID: 1219600199}
-  - {fileID: 189965729}
-  - {fileID: 1029667680}
-  - {fileID: 1130615180}
   - {fileID: 1173956578}
+  - {fileID: 1029667680}
+  - {fileID: 189965729}
+  - {fileID: 1130615180}
   - {fileID: 1701065681}
   - {fileID: 1752440728}
