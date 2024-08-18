@@ -10,8 +10,8 @@ using TMPro;
 using System.ComponentModel.Design;
 using System.Runtime.InteropServices;
 using System;
-//"±¸¸ÅÇß´Ù"°¡ µé¾î°¡´Â °÷¿¡ ÀÚ¿ø Â÷°¨ÇÏ¸é µÊ
-//"player"¿¡ customize.playername ³ÖÀ¸¸é µÊ 
+//"êµ¬ë§¤í–ˆë‹¤"ê°€ ë“¤ì–´ê°€ëŠ” ê³³ì— ìì› ì°¨ê°í•˜ë©´ ë¨
+//"player"ì— customize.playername ë„£ìœ¼ë©´ ë¨ 
 
 public class npc : MonoBehaviour
 {
@@ -39,8 +39,8 @@ public class npc : MonoBehaviour
     public static int jungminflag = 0;
     public static int manjutojung = 0;
     public static int optnum = 0;
-    public static int glass = 0;//ÀÎº¥Åä¸®¿¡ ¾È°æÀÌ ÀÖÀ¸¸é 1·Î º¯°æÇÏ¸é µÈ´Ù. 
-    public static int glassinter = 0; //ÇÑ ¹ø ³ëÀÎ¿¡°Ô ¾È°æÀ» °¡Á®´Ù ÁáÀ¸¸é 
+    public static int glass = 0;//ì¸ë²¤í† ë¦¬ì— ì•ˆê²½ì´ ìˆìœ¼ë©´ 1ë¡œ ë³€ê²½í•˜ë©´ ëœë‹¤. 
+    public static int glassinter = 0; //í•œ ë²ˆ ë…¸ì¸ì—ê²Œ ì•ˆê²½ì„ ê°€ì ¸ë‹¤ ì¤¬ìœ¼ë©´ 
     public static int sibiinter = 0;
     public static int jobinter = 0;
     public static int gointer = 0;
@@ -56,20 +56,20 @@ public class npc : MonoBehaviour
 
 
     public int playercolflag = 0;
-    string[] weildcontent = new string[8] { "¸ø¿¡ ¹ßÀÌ ¾ø¾î.", "¸ø¿¡ ¹ßÀÌ ¾ø´Ù´Ï±î?", "....", "±×³à¼®µéÀÌ ³ª¸¦ µÎ°í °¬¾î.", "±×³à¼®µéÀÌ ³ª¸¦ µÎ°í °¬¾î.", "ÀÚ½Ä »õ³¢µé Å°¿öºÁ¾ß ´Ù ¼Ò¿ë¾ø´Ù´õ´Ï...", "....", "³» ¹Ù±¸´Ï....¾îµğ´Ù ³öµ×´õ¶ó?" };
-    string[] helpcontent = new string[5] { "ÀÌ»óÇÏ´Ù...¾È°æÀÌ ¿©±â ¾îµğ ÀÖ¾ú´Âµ¥.....", "Àú...ÇĞ»ı. È¤½Ã ³» ¾È°æ ¸ø ºÃ¾î¿ä?", "ÀÌ»óÇÏ³×...", "¿ì¸® ¼ÕÁÖ¶û ¶È ´à¾Ò³×....", "¿ì¸® ¼ÕÁÖ °°¾Æ¼­ ÁÖ´Â °Å¾ß..." };
+    string[] weildcontent = new string[8] { "ëª»ì— ë°œì´ ì—†ì–´.", "ëª»ì— ë°œì´ ì—†ë‹¤ë‹ˆê¹Œ?", "....", "ê·¸ë…€ì„ë“¤ì´ ë‚˜ë¥¼ ë‘ê³  ê°”ì–´.", "ê·¸ë…€ì„ë“¤ì´ ë‚˜ë¥¼ ë‘ê³  ê°”ì–´.", "ìì‹ ìƒˆë¼ë“¤ í‚¤ì›Œë´ì•¼ ë‹¤ ì†Œìš©ì—†ë‹¤ë”ë‹ˆ...", "....", "ë‚´ ë°”êµ¬ë‹ˆ....ì–´ë””ë‹¤ ë†”ë’€ë”ë¼?" };
+    string[] helpcontent = new string[5] { "ì´ìƒí•˜ë‹¤...ì•ˆê²½ì´ ì—¬ê¸° ì–´ë”” ìˆì—ˆëŠ”ë°.....", "ì €...í•™ìƒ. í˜¹ì‹œ ë‚´ ì•ˆê²½ ëª» ë´¤ì–´ìš”?", "ì´ìƒí•˜ë„¤...", "ìš°ë¦¬ ì†ì£¼ë‘ ë˜‘ ë‹®ì•˜ë„¤....", "ìš°ë¦¬ ì†ì£¼ ê°™ì•„ì„œ ì£¼ëŠ” ê±°ì•¼..." };
     string[] objcontent = new string[1] { "................." };
-    string[] angercontent = new string[3] { "¾îÀÌ,°Å±â!", "´«À» ¾îµû µÎ°í ´Ù´Ï´Â °Å¾ß?", "Âì." };
-    string[] manjucontent = new string[4] {"ÇìÇì,Á¤¸» ±¦ÂúÀºµ¥...","Á¤¹Î³×.","......","Á¤¹Î....´ëÇĞ»ıÀÌ ¹«½¼ µ·ÀÌ ÀÖ°Ú¾î¿ä~"};
-    string[] clocontent = new string[3] { "Á¤¹Î¿À, ÆĞ¼Ç¿¡ °ü½É ÀÖÀ¸½Å°¡ºÁ¿ä? Àúµ·µ¥!","Á¤¹ÎÀÌ°Íµµ »ç½Ç ÁöÇÏ»ó°¡¿¡¼­ »ê °Å°Åµç¿ä~","Á¤¹Î¿©±â Áú ±¦Âú´Ù´Ï±î?" };
-    string[] jihoonfirst = new string[9] { "Á¤¹Î¾î, ¾È³ç?", "ÁöÈÆÀ¸¾Æ¾Æ¾Æ¾Æ¾Ó!!", "Á¤¹Î¾ö¸¶¶û ¾Æºü´Â ¾îµğ°¡¼Ì¾î?", "ÁöÈÆ¸ô¶ó...¾ö¸¶¾Æ¾Æ....", "ÁöÈÆ¾ö¸¶°¡ ¾È º¸¿©... ²õ....", "Á¤¹Î¹Ì¾Æ°°Àºµ¥...¾î¶±ÇÒ±î¿ä?","PP(°æ°èÇÒ ÁÙ ¾Ë¾Ò´Âµ¥... ´ÙÇàÀÌ´Ù.)","Á¤¹Î³Ê´Â ÀÌ¸§ÀÌ ¹¹¾ß?","ÁöÈÆ...ÁöÈÆÀÌ."};
-    string[] stationcontent = new string[4] { "Á¤¹Î¾Ñ, Åğ±ÙÇÏ¼Ì³×...", "....", "Á¤¹Î¸¶Áö¸·À¸·Î ¾ö¸¶¶û ¾îµğ¼­ Çì¾îÁ³´ÂÁö ±â¾ï³ª?","ÁöÈÆ(µµ¸®µµ¸®)" };
-    string[] jobcontent = new string[2] { "ÀÚ °­¾ÆÁö, °­¾ÆÁö Àå³­°¨ ÀÖ½À´Ï´Ù. 360µµ·Î µ¹¾Æ°¡´Â °Ì´Ï´Ù. \n¿ä Ä£È¯°æ LED ", "ÁöÈÆ...È÷²õ." };
-    string[] godcontent = new string[8] { "¿©·¯ºĞ. ÀúÈñ ¿¹¼ö´Ô²²¼­´Â ³ª ÇÏ³ª¸¦ À§ÇØ\n ½ÊÀÚ°¡¿¡ ¸øÀÌ ¹ÚÇô µ¹¾Æ°¡½Ã°í....","Á¤¹Î¾¾", "¿¹¿¡,´ç¿¬È÷! ÁøÂ¥ ¾Æ´Ï°Ú½À´Ï±î. ÇÏ³ª´Ô²²¼­ º¸¿ìÇÏ»ç....", "PL±×°Å ÁøÂ¥¿¡¿ä? ¾Æ´Ñ °Å °°Àºµ¥....", "Á¤¹Î(¾È»öÀÌ ÆÄ·¡Á³´Ù)", "PL±×·³ Àú Áö¿Á...", "Á¤¹ÎÇÏÇÏ,ÁË¼ÛÇÕ´Ï´Ù.", "....." };
-    string[] jihooninter = new string[8] { "PLÀ°È¸ ÁÁ¾ÆÇØ?", "ÁöÈÆ....???", "PL¾ÆÁ÷ ¾î·Á¼­ ¸ğ¸£³ª...", "ÁöÈÆÀÌ°Å....", "PLÁöÈÆÀÌ ¾î¸Ó´Ï²²¼­ ³²±â½Å ÆíÁö°°´Ù.","Á¤¹ÎÀÚ, ÀÌ°Å ¸Ô°í ±â¿î³».","ÁöÈÆ(¿ì¹°¿ì¹°)","Á¤¹ÎÇìÇì, ¸ÀÀÖÁö? Àú±â Àú ÂøÇÑ »ç¶÷ÀÌ »çÁØ°Å¾ß." };
-    string[] jungmininter = new string[3] { "Á¤¹Î±×·¡¿ä?? ¼¼»ó ÁÁ¾ÆÁ³³×...", "Á¤¹ÎÀ°È¸ ¸Ô°í ½Í´Ù. Ãò¸¨", "Á¤¹Î¾Ñ, Á¤¸» ¾È ÁÖ¼Åµµ µÇ´Âµ¥, ³È³È"};
+    string[] angercontent = new string[3] { "ì–´ì´,ê±°ê¸°!", "ëˆˆì„ ì–´ë”° ë‘ê³  ë‹¤ë‹ˆëŠ” ê±°ì•¼?", "ì¯§." };
+    string[] manjucontent = new string[4] {"í—¤í—¤,ì •ë§ ê´œì°®ì€ë°...","ì •ë¯¼ë„¤.","......","ì •ë¯¼....ëŒ€í•™ìƒì´ ë¬´ìŠ¨ ëˆì´ ìˆê² ì–´ìš”~"};
+    string[] clocontent = new string[3] { "ì •ë¯¼ì˜¤, íŒ¨ì…˜ì— ê´€ì‹¬ ìˆìœ¼ì‹ ê°€ë´ìš”? ì €ëˆë°!","ì •ë¯¼ì´ê²ƒë„ ì‚¬ì‹¤ ì§€í•˜ìƒê°€ì—ì„œ ì‚° ê±°ê±°ë“ ìš”~","ì •ë¯¼ì—¬ê¸° ì§ˆ ê´œì°®ë‹¤ë‹ˆê¹Œ?" };
+    string[] jihoonfirst = new string[9] { "ì •ë¯¼ì–´, ì•ˆë…•?", "ì§€í›ˆìœ¼ì•„ì•„ì•„ì•„ì•™!!", "ì •ë¯¼ì—„ë§ˆë‘ ì•„ë¹ ëŠ” ì–´ë””ê°€ì…¨ì–´?", "ì§€í›ˆëª°ë¼...ì—„ë§ˆì•„ì•„....", "ì§€í›ˆì—„ë§ˆê°€ ì•ˆ ë³´ì—¬... ë…....", "ì •ë¯¼ë¯¸ì•„ê°™ì€ë°...ì–´ë–¡í• ê¹Œìš”?","PP(ê²½ê³„í•  ì¤„ ì•Œì•˜ëŠ”ë°... ë‹¤í–‰ì´ë‹¤.)","ì •ë¯¼ë„ˆëŠ” ì´ë¦„ì´ ë­ì•¼?","ì§€í›ˆ...ì§€í›ˆì´."};
+    string[] stationcontent = new string[4] { "ì •ë¯¼ì•—, í‡´ê·¼í•˜ì…¨ë„¤...", "....", "ì •ë¯¼ë§ˆì§€ë§‰ìœ¼ë¡œ ì—„ë§ˆë‘ ì–´ë””ì„œ í—¤ì–´ì¡ŒëŠ”ì§€ ê¸°ì–µë‚˜?","ì§€í›ˆ(ë„ë¦¬ë„ë¦¬)" };
+    string[] jobcontent = new string[2] { "ì ê°•ì•„ì§€, ê°•ì•„ì§€ ì¥ë‚œê° ìˆìŠµë‹ˆë‹¤. 360ë„ë¡œ ëŒì•„ê°€ëŠ” ê²ë‹ˆë‹¤. \nìš” ì¹œí™˜ê²½ LED ", "ì§€í›ˆ...íˆë…." };
+    string[] godcontent = new string[8] { "ì—¬ëŸ¬ë¶„. ì €í¬ ì˜ˆìˆ˜ë‹˜ê»˜ì„œëŠ” ë‚˜ í•˜ë‚˜ë¥¼ ìœ„í•´\n ì‹­ìê°€ì— ëª»ì´ ë°•í˜€ ëŒì•„ê°€ì‹œê³ ....","ì •ë¯¼ì”¨", "ì˜ˆì—,ë‹¹ì—°íˆ! ì§„ì§œ ì•„ë‹ˆê² ìŠµë‹ˆê¹Œ. í•˜ë‚˜ë‹˜ê»˜ì„œ ë³´ìš°í•˜ì‚¬....", "PLê·¸ê±° ì§„ì§œì—ìš”? ì•„ë‹Œ ê±° ê°™ì€ë°....", "ì •ë¯¼(ì•ˆìƒ‰ì´ íŒŒë˜ì¡Œë‹¤)", "PLê·¸ëŸ¼ ì € ì§€ì˜¥...", "ì •ë¯¼í•˜í•˜,ì£„ì†¡í•©ë‹ˆë‹¤.", "....." };
+    string[] jihooninter = new string[8] { "PLìœ¡íšŒ ì¢‹ì•„í•´?", "ì§€í›ˆ....???", "PLì•„ì§ ì–´ë ¤ì„œ ëª¨ë¥´ë‚˜...", "ì§€í›ˆì´ê±°....", "PLì§€í›ˆì´ ì–´ë¨¸ë‹ˆê»˜ì„œ ë‚¨ê¸°ì‹  í¸ì§€ê°™ë‹¤.","ì •ë¯¼ì, ì´ê±° ë¨¹ê³  ê¸°ìš´ë‚´.","ì§€í›ˆ(ìš°ë¬¼ìš°ë¬¼)","ì •ë¯¼í—¤í—¤, ë§›ìˆì§€? ì €ê¸° ì € ì°©í•œ ì‚¬ëŒì´ ì‚¬ì¤€ê±°ì•¼." };
+    string[] jungmininter = new string[3] { "ì •ë¯¼ê·¸ë˜ìš”?? ì„¸ìƒ ì¢‹ì•„ì¡Œë„¤...", "ì •ë¯¼ìœ¡íšŒ ë¨¹ê³  ì‹¶ë‹¤. ì¸„ë¦…", "ì •ë¯¼ì•—, ì •ë§ ì•ˆ ì£¼ì…”ë„ ë˜ëŠ”ë°, ëƒ ëƒ "};
     private Vector2 pos;
-    //string[] jihoonfirst = new string[] = {"Á¤¹Î¾î, ¾È³ç?","ÁöÈÆÀ¸¾Æ¾Æ¾Æ¾Æ¾Æ¾Ó!!","Á¤¹Î¾ö¸¶¶û ¾Æºü´Â ¾îµğ°¡¼Ì¾î?","ÁöÈÆ¸ô¶ó...¾ö¸¶¾Æ¾Æ...","ÁöÈÆ¾ö¸¶°¡ ¾È º¸¿©... ²õ....","Á¤¹Î¹Ì¾Æ°°Àºµ¥...¾î¶±ÇÒ±î¿ä?","¼±1ÀÌ¸§À» ¹°¾îº»´Ù","¼±2¸ÔÀ» °ÍÀ» °Ç³Ù´Ù")
+    //string[] jihoonfirst = new string[] = {"ì •ë¯¼ì–´, ì•ˆë…•?","ì§€í›ˆìœ¼ì•„ì•„ì•„ì•„ì•„ì•™!!","ì •ë¯¼ì—„ë§ˆë‘ ì•„ë¹ ëŠ” ì–´ë””ê°€ì…¨ì–´?","ì§€í›ˆëª°ë¼...ì—„ë§ˆì•„ì•„...","ì§€í›ˆì—„ë§ˆê°€ ì•ˆ ë³´ì—¬... ë…....","ì •ë¯¼ë¯¸ì•„ê°™ì€ë°...ì–´ë–¡í• ê¹Œìš”?","ì„ 1ì´ë¦„ì„ ë¬¼ì–´ë³¸ë‹¤","ì„ 2ë¨¹ì„ ê²ƒì„ ê±´ë„¨ë‹¤")
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
@@ -79,21 +79,25 @@ public class npc : MonoBehaviour
         {
             playercolflag = 1;
             presentcol = gameObject.name;
-            if (gameObject.name == "°³Âû±¸" && gointer == 0)
+            if (gameObject.name == "ê°œì°°êµ¬" && gointer == 0)
             {
                 Vector2 pos = transform.position;
-                interobj = "°³Âû±¸";
+                interobj = "ê°œì°°êµ¬";
                 Player.moveflag = 0;
                 talksqu.SetActive(true);
                 options.SetActive(true);
                 option3_bt.SetActive(false);
                 button.SetActive(false);
                 who.text = "player";
-                content.text = "ÀÌµ¿ÇÒ±î?";
-                option1.text = "> ÅÂ±×¸¦ Âï´Â´Ù.";
-                option2.text = "> ÅÂ±×¸¦ ÂïÁö ¾Ê´Â´Ù.";
+                content.text = "ì´ë™í• ê¹Œ?";
+                option1.text = "> íƒœê·¸ë¥¼ ì°ëŠ”ë‹¤.";
+                option2.text = "> íƒœê·¸ë¥¼ ì°ì§€ ì•ŠëŠ”ë‹¤.";
             }
+<<<<<<< HEAD
             if (gameObject.name == "°è´Ü_ÁÂÃø»ó´Ü"|| gameObject.name == "°è´Ü_ÁÂÃøÇÏ´Ü" || gameObject.name == "°è´Ü_¿ìÃøÁß¾Ó"|| gameObject.name == "1È£¼±½Â°­Àå°è´Ü"|| gameObject.name == "ÁöÇÏ2ÃşÇÏ´Ü"|| gameObject.name == "ÁöÇÏ2Ãş»ó´Ü")
+=======
+            if (gameObject.name == "ê³„ë‹¨_ì¢Œì¸¡ìƒë‹¨"|| gameObject.name == "ê³„ë‹¨_ì¢Œì¸¡í•˜ë‹¨" || gameObject.name == "ê³„ë‹¨_ìš°ì¸¡ì¤‘ì•™")
+>>>>>>> main
             {
                 Vector2 pos = transform.position;
                 
@@ -104,9 +108,15 @@ public class npc : MonoBehaviour
                 option3_bt.SetActive(false);
                 button.SetActive(false);
                 who.text = "player";
+<<<<<<< HEAD
                 content.text = "ÀÌµ¿ÇÒ±î?";
                 option1.text = "> ÀÌµ¿ÇÑ´Ù";
                 option2.text = "> ÀÌµ¿ÇÏÁö ¾Ê´Â´Ù.";
+=======
+                content.text = "ì´ë™í• ê¹Œ?";
+                option1.text = "> ë‚´ë ¤ê°„ë‹¤";
+                option2.text = "> ë‚´ë ¤ê°€ì§€ ì•ŠëŠ”ë‹¤.";
+>>>>>>> main
             }
 
         }
@@ -152,18 +162,19 @@ public class npc : MonoBehaviour
         }
 
 
-        if (interobj=="°³Âû±¸")
+        if (interobj=="ê°œì°°êµ¬")
         {
             Player.moveflag = 1;
             button.SetActive(true);
             who.text = "player";
-            content.text = "ÀÌµ¿ÇÏÀÚ.";
+            content.text = "ì´ë™í•˜ì.";
             gointer = 1;
         }
 
 
-        if (interobj == "°è´Ü_ÁÂÃø»ó´Ü"||interobj=="°è´Ü_ÁÂÃøÇÏ´Ü")
+        if (interobj == "ê³„ë‹¨_ì¢Œì¸¡ìƒë‹¨"||interobj=="ê³„ë‹¨_ì¢Œì¸¡í•˜ë‹¨")
         {
+<<<<<<< HEAD
             content.text = "";
             SceneManager.LoadScene("1È£¼±½Â°­Àå_Á¾·Î");
             //Player.playertrans(0f, 1351f);
@@ -206,11 +217,29 @@ public class npc : MonoBehaviour
 
         }
         if (interobj=="µ¨¸®¸¸Áê °¡°Ô")
+=======
+            button.SetActive(true);
+            who.text = "player";
+            content.text = "ì´ë™í•˜ì.";
+            SceneManager.LoadScene("1í˜¸ì„ ìŠ¹ê°•ì¥_ì¢…ë¡œ");
+            //Player.playertrans(0f, 1351f);
+        }
+
+        if (interobj == "ê³„ë‹¨_ìš°ì¸¡ì¤‘ì•™")
+        {
+            button.SetActive(true);
+            who.text = "player";
+            content.text = "ì´ë™í•˜ì.";
+            SceneManager.LoadScene("jongro_B2");
+          
+        }
+        if (interobj=="ë¸ë¦¬ë§Œì¥¬ ê°€ê²Œ")
+>>>>>>> main
         {
             if(manjufirst!=1)
             {
                 who.text = "player";
-                content.text = "»ç ÁÙ±î¿ä?";
+                content.text = "ì‚¬ ì¤„ê¹Œìš”?";
                 button.SetActive(true);
                 buttonnum = 0;
 
@@ -218,7 +247,7 @@ public class npc : MonoBehaviour
             else
             {
                 who.text = "system";
-                content.text = "µ¨¸®¸¸Áê¸¦ ±¸¸ÅÇß´Ù.";
+                content.text = "ë¸ë¦¬ë§Œì¥¬ë¥¼ êµ¬ë§¤í–ˆë‹¤.";
                 buttonnum = 15;
 
             }
@@ -227,12 +256,12 @@ public class npc : MonoBehaviour
 
         }
 
-        if (interobj == "¿Ê °¡°Ô")
+        if (interobj == "ì˜· ê°€ê²Œ")
         {
             
             
              who.text = "system";
-             content.text = "Â¯±¸ Àá¿ÊÀ» ±¸¸ÅÇß´Ù.";
+             content.text = "ì§±êµ¬ ì ì˜·ì„ êµ¬ë§¤í–ˆë‹¤.";
              button.SetActive(true);
              buttonnum = 0;
 
@@ -240,37 +269,37 @@ public class npc : MonoBehaviour
 
         }
 
-        if (interobj == "ÆíÀÇÁ¡")
+        if (interobj == "í¸ì˜ì ")
         {
             who.text = "system";
-            content.text = "¹°À» ±¸¸ÅÇß´Ù.";
+            content.text = "ë¬¼ì„ êµ¬ë§¤í–ˆë‹¤.";
             button.SetActive(true);
             buttonnum = 0;
 
 
         }
-        if(interobj=="µµ¿òÀÌ ÇÊ¿äÇØº¸ÀÌ´Â ³ëÀÎ")
+        if(interobj=="ë„ì›€ì´ í•„ìš”í•´ë³´ì´ëŠ” ë…¸ì¸")
         {
             who.text = "player";
-            content.text = "¾È ÁÖ¼Åµµ µÅ¿ä";
+            content.text = "ì•ˆ ì£¼ì…”ë„ ë¼ìš”";
             button.SetActive(true);
             buttonnum = 0;
             glassinter = 1;
 
         }
-        if(interobj=="»çÀÌºñ")
+        if(interobj=="ì‚¬ì´ë¹„")
         {
             who.text = "player";
-            content.text = "ÁøÂ¥¿ä?";
+            content.text = "ì§„ì§œìš”?";
             button.SetActive(true);
             buttonnum = 1;
            
             
         }
-        if (interobj == "½Ãºñ°Å´Â Ãë°´")
+        if (interobj == "ì‹œë¹„ê±°ëŠ” ì·¨ê°")
         {
-            who.text = "½Ãºñ°Å´Â Ãë°´";
-            content.text = "¿ÀÀ×?";
+            who.text = "ì‹œë¹„ê±°ëŠ” ì·¨ê°";
+            content.text = "ì˜¤ì‰?";
             button.SetActive(true);
             buttonnum = 1;
             sibiinter = 1;
@@ -279,10 +308,10 @@ public class npc : MonoBehaviour
         }
 
        
-        if (interobj == "Àâ»óÀÎ")
+        if (interobj == "ì¡ìƒì¸")
         {
             who.text = "player";
-            content.text = "¿òÁ÷ÀÌ´Â °­¾ÆÁö¸¦ ±¸¸ÅÇß´Ù.";
+            content.text = "ì›€ì§ì´ëŠ” ê°•ì•„ì§€ë¥¼ êµ¬ë§¤í–ˆë‹¤.";
             button.SetActive(true);
             buttonnum = 10;
             
@@ -290,10 +319,10 @@ public class npc : MonoBehaviour
 
         }
 
-        if (interobj == "À½½Ä ÆÄ´Â ÇÒ¸Ó´Ï")
+        if (interobj == "ìŒì‹ íŒŒëŠ” í• ë¨¸ë‹ˆ")
         {
             who.text = "player";
-            content.text = "±è¹äÀ» ±¸ÀÔÇß´Ù.";
+            content.text = "ê¹€ë°¥ì„ êµ¬ì…í–ˆë‹¤.";
             button.SetActive(true);
             buttonnum = 10;
 
@@ -301,36 +330,36 @@ public class npc : MonoBehaviour
 
         }
 
-        if (interobj == "¾Ş¹úÀÌ")
+        if (interobj == "ì•µë²Œì´")
         {
             who.text = "player";
-            content.text = "Ä«¼¼Æ® 96À» ±¸ÀÔÇß´Ù.";
+            content.text = "ì¹´ì„¸íŠ¸ 96ì„ êµ¬ì…í–ˆë‹¤.";
             button.SetActive(true);
             buttonnum = 10;
 
 
 
         }
-        if(interobj == "ÁöÈÆ"&&jihoonflag==1)
+        if(interobj == "ì§€í›ˆ"&&jihoonflag==1)
         {
-            who.text = "ÁöÈÆ";
-            content.text = "ÁöÈÆÀÌ....";
+            who.text = "ì§€í›ˆ";
+            content.text = "ì§€í›ˆì´....";
             button.SetActive(true);
             buttonnum = 10;
         }
 
-        if (interobj == "ÁöÈÆ" && jihoonflag == 2)
+        if (interobj == "ì§€í›ˆ" && jihoonflag == 2)
         {
             who.text = "player";
-            content.text = "°°ÀÌ°¡ÀÚ! ¾ö¸¶ Ã£¾ÆÁÙ°Ô.";
+            content.text = "ê°™ì´ê°€ì! ì—„ë§ˆ ì°¾ì•„ì¤„ê²Œ.";
             button.SetActive(true);
             buttonnum = 15;
             jihoon_B2.jihoonmove = 1;
         }
-        if(interobj=="Á¤¹Î")
+        if(interobj=="ì •ë¯¼")
         {
             who.text = "player";
-            content.text = "¿äÁò À°È¸ 2ÀÎºĞÀÌ ¸¸¿øÀÌ·¡¿ä";
+            content.text = "ìš”ì¦˜ ìœ¡íšŒ 2ì¸ë¶„ì´ ë§Œì›ì´ë˜ìš”";
             button.SetActive(true);
         }
         options.SetActive(false);
@@ -372,12 +401,12 @@ public class npc : MonoBehaviour
             }
         }
 
-        if (interobj == "µ¨¸®¸¸Áê °¡°Ô")
+        if (interobj == "ë¸ë¦¬ë§Œì¥¬ ê°€ê²Œ")
         {
             if(manjufirst==0)
             {
                 who.text = "player";
-                content.text = "µ· ¾øÀ¸¼¼¿ä?";
+                content.text = "ëˆ ì—†ìœ¼ì„¸ìš”?";
                 button.SetActive(true);
                 buttonnum = 1;
 
@@ -385,55 +414,59 @@ public class npc : MonoBehaviour
             else
             {
                 who.text = "system";
-                content.text = "ÇÖµµ±×¸¦ ±¸¸ÅÇß´Ù.";
+                content.text = "í•«ë„ê·¸ë¥¼ êµ¬ë§¤í–ˆë‹¤.";
                 buttonnum = 15;
             }
            
 
         }
-        if (interobj == "¿Ê °¡°Ô")
+        if (interobj == "ì˜· ê°€ê²Œ")
         {
             who.text = "system";
-            content.text = "¿ä»óÇÑ ¸ÇÅõ¸ÇÀ» ±¸¸ÅÇß´Ù";
+            content.text = "ìš”ìƒí•œ ë§¨íˆ¬ë§¨ì„ êµ¬ë§¤í–ˆë‹¤";
             button.SetActive(true);
             buttonnum = 0;
 
 
         }
+<<<<<<< HEAD
         if (interobj == "°è´Ü_ÁÂÃø»ó´Ü" || interobj == "°è´Ü_ÁÂÃøÇÏ´Ü"||interobj=="°è´Ü_¿ìÃøÁß¾Ó"||gameObject.name == "1È£¼±½Â°­Àå°è´Ü" || gameObject.name == "ÁöÇÏ2ÃşÇÏ´Ü" || gameObject.name == "ÁöÇÏ2Ãş»ó´Ü")
+=======
+        if (interobj == "ê³„ë‹¨_ì¢Œì¸¡ìƒë‹¨" || interobj == "ê³„ë‹¨_ì¢Œì¸¡í•˜ë‹¨"||interobj=="ê³„ë‹¨_ìš°ì¸¡ì¤‘ì•™")
+>>>>>>> main
         {
             button.SetActive(true);
             who.text = "player";
-            content.text = "Á¶±İ¸¸ ´õ µÑ·¯º¼±î.";
+            content.text = "ì¡°ê¸ˆë§Œ ë” ë‘˜ëŸ¬ë³¼ê¹Œ.";
             
         }
-        if (interobj == "ÆíÀÇÁ¡")
+        if (interobj == "í¸ì˜ì ")
         {
             who.text = "system";
-            content.text = "º¸Á¶¹èÅÍ¸®¸¦ ±¸¸ÅÇß´Ù.";
+            content.text = "ë³´ì¡°ë°°í„°ë¦¬ë¥¼ êµ¬ë§¤í–ˆë‹¤.";
             button.SetActive(true);
             buttonnum = 0;
 
 
         }
-        if (interobj == "µµ¿òÀÌ ÇÊ¿äÇØº¸ÀÌ´Â ³ëÀÎ")
+        if (interobj == "ë„ì›€ì´ í•„ìš”í•´ë³´ì´ëŠ” ë…¸ì¸")
         {
             who.text = "player";
-            content.text = "°¨»çÇÕ´Ï´Ù";
+            content.text = "ê°ì‚¬í•©ë‹ˆë‹¤";
             button.SetActive(true);
             buttonnum = 0;
             glassinter = 1;
         }
 
-        if (interobj == "»çÀÌºñ")
+        if (interobj == "ì‚¬ì´ë¹„")
         {
 
           
-            who.text = "»çÀÌºñ";
-            content.text = "(À¯À¯È÷ ¿· Ä­À¸·Î »ç¶óÁø´Ù)";
-            /*if(gameObject.name== "»çÀÌºñ")
+            who.text = "ì‚¬ì´ë¹„";
+            content.text = "(ìœ ìœ íˆ ì˜† ì¹¸ìœ¼ë¡œ ì‚¬ë¼ì§„ë‹¤)";
+            /*if(gameObject.name== "ì‚¬ì´ë¹„")
             {
-                Debug.Log("»çÀÌºñ ºñÈ°¼ºÈ­ ÄÚµå");
+                Debug.Log("ì‚¬ì´ë¹„ ë¹„í™œì„±í™” ì½”ë“œ");
                 
             }*/
             button.SetActive(true);
@@ -441,20 +474,20 @@ public class npc : MonoBehaviour
            
         }
 
-        if (interobj == "½Ãºñ°Å´Â Ãë°´")
+        if (interobj == "ì‹œë¹„ê±°ëŠ” ì·¨ê°")
         {
-            who.text = "½Ãºñ°Å´Â Ãë°´";
-            content.text = "(³ª¸¦ ÇâÇØ ¼Õ°¡¶ôÁúÀ» ÇÑ´Ù)";
+            who.text = "ì‹œë¹„ê±°ëŠ” ì·¨ê°";
+            content.text = "(ë‚˜ë¥¼ í–¥í•´ ì†ê°€ë½ì§ˆì„ í•œë‹¤)";
             button.SetActive(true);
             buttonnum = 1;
             sibiinter = 1;
 
 
         }
-        if (interobj == "Àâ»óÀÎ")
+        if (interobj == "ì¡ìƒì¸")
         {
             who.text = "player";
-            content.text = "ÆÈÅä½Ã¸¦ ±¸¸ÅÇß´Ù.";
+            content.text = "íŒ”í† ì‹œë¥¼ êµ¬ë§¤í–ˆë‹¤.";
             button.SetActive(true);
             buttonnum = 10;
 
@@ -463,10 +496,10 @@ public class npc : MonoBehaviour
 
         }
 
-        if (interobj == "À½½Ä ÆÄ´Â ÇÒ¸Ó´Ï")
+        if (interobj == "ìŒì‹ íŒŒëŠ” í• ë¨¸ë‹ˆ")
         {
             who.text = "player";
-            content.text = "Âğ ¿Á¼ö¼ö¸¦ ±¸ÀÔÇß´Ù.";
+            content.text = "ì° ì˜¥ìˆ˜ìˆ˜ë¥¼ êµ¬ì…í–ˆë‹¤.";
             button.SetActive(true);
             buttonnum = 10;
 
@@ -475,21 +508,21 @@ public class npc : MonoBehaviour
 
         }
 
-        if (interobj == "¾Ş¹úÀÌ")
+        if (interobj == "ì•µë²Œì´")
         {
             who.text = "player";
-            content.text = "Ä«¼¼Æ® 32¸¦ ±¸ÀÔÇß´Ù.";
+            content.text = "ì¹´ì„¸íŠ¸ 32ë¥¼ êµ¬ì…í–ˆë‹¤.";
             button.SetActive(true);
             buttonnum = 10;
 
 
 
         }
-        if (interobj == "°³Âû±¸")
+        if (interobj == "ê°œì°°êµ¬")
         {
             Player.playertrans(pos.x+1,pos.y);
             who.text = "player";
-            content.text = "Á¶±İ ´õ ÀÖ´Ù Ãâ¹ßÇÒ±î...";
+            content.text = "ì¡°ê¸ˆ ë” ìˆë‹¤ ì¶œë°œí• ê¹Œ...";
             Player.moveflag = 1;
             button.SetActive(true);
         
@@ -497,26 +530,26 @@ public class npc : MonoBehaviour
 
 
         }
-        if (interobj == "ÁöÈÆ" && jihoonflag == 1)
+        if (interobj == "ì§€í›ˆ" && jihoonflag == 1)
         {
-            who.text = "ÁöÈÆ";
-            content.text = "(¿ì¹°¿ì¹°)";
+            who.text = "ì§€í›ˆ";
+            content.text = "(ìš°ë¬¼ìš°ë¬¼)";
             buttonnum = 6;
             button.SetActive(true);
         }
 
-        if (interobj == "ÁöÈÆ" && jihoonflag == 2)
+        if (interobj == "ì§€í›ˆ" && jihoonflag == 2)
         {
-            who.text = "Á¤¹Î";
-            content.text = "¾î¶»°Ô ¾ÆÀÌ¸¦ µÎ°í °¥ ¼ö ÀÖ¾î¿ä?! ¾ß¸¸ÀÎ!!!";
+            who.text = "ì •ë¯¼";
+            content.text = "ì–´ë–»ê²Œ ì•„ì´ë¥¼ ë‘ê³  ê°ˆ ìˆ˜ ìˆì–´ìš”?! ì•¼ë§Œì¸!!!";
             buttonnum = 14;
             button.SetActive(true);
             
         }
-        if (interobj == "Á¤¹Î")
+        if (interobj == "ì •ë¯¼")
         {
             who.text = "player";
-            content.text = "...µå¼¼¿ä";
+            content.text = "...ë“œì„¸ìš”";
             buttonnum = 1;
             button.SetActive(true);
         }
@@ -557,29 +590,29 @@ public class npc : MonoBehaviour
         }
 
 
-        if (interobj == "Àâ»óÀÎ")
+        if (interobj == "ì¡ìƒì¸")
         {
             who.text = "player";
-            content.text = "Ç®ÆäÀÌ½º µÎ°ÇÀ» ±¸¸ÅÇß´Ù.";
+            content.text = "í’€í˜ì´ìŠ¤ ë‘ê±´ì„ êµ¬ë§¤í–ˆë‹¤.";
             button.SetActive(true);
             buttonnum = 10;
 
 
 
         }
-        if (interobj == "¿Ê °¡°Ô")
+        if (interobj == "ì˜· ê°€ê²Œ")
         {
             who.text = "system";
-            content.text = "º¡°ÅÁö¸¦ ±¸¸ÅÇß´Ù.";
+            content.text = "ë²™ê±°ì§€ë¥¼ êµ¬ë§¤í–ˆë‹¤.";
             button.SetActive(true);
             buttonnum = 0;
 
 
         }
-        if (interobj == "ÆíÀÇÁ¡")
+        if (interobj == "í¸ì˜ì ")
         {
             who.text = "system";
-            content.text = "°úÀÚ¸¦ ±¸¸ÅÇß´Ù.";
+            content.text = "ê³¼ìë¥¼ êµ¬ë§¤í–ˆë‹¤.";
             button.SetActive(true);
             buttonnum = 0;
 
@@ -588,29 +621,29 @@ public class npc : MonoBehaviour
         options.SetActive(false);
 
 
-        if (interobj == "»çÀÌºñ")
+        if (interobj == "ì‚¬ì´ë¹„")
         {
             who.text = "player";
-            content.text = "±×°Å ÁøÂ¥¿¡¿ä? ¾Æ´Ñ °Å °°Àºµ¥....";
+            content.text = "ê·¸ê±° ì§„ì§œì—ìš”? ì•„ë‹Œ ê±° ê°™ì€ë°....";
             button.SetActive(true);
             buttonnum = 3;
 
 
         }
-        if (interobj == "½Ãºñ°Å´Â Ãë°´")
+        if (interobj == "ì‹œë¹„ê±°ëŠ” ì·¨ê°")
         {
-            who.text = "½Ãºñ°Å´Â Ãë°´";
-            content.text = "¿¡ÀÌ¾¾....";
+            who.text = "ì‹œë¹„ê±°ëŠ” ì·¨ê°";
+            content.text = "ì—ì´ì”¨....";
             button.SetActive(true);
             buttonnum = 1;
             sibiinter = 1;
 
 
         }
-        if (interobj == "¾Ş¹úÀÌ")
+        if (interobj == "ì•µë²Œì´")
         {
             who.text = "player";
-            content.text = "Ä«¼¼Æ® 3À» ±¸ÀÔÇß´Ù.";
+            content.text = "ì¹´ì„¸íŠ¸ 3ì„ êµ¬ì…í–ˆë‹¤.";
             button.SetActive(true);
             buttonnum = 10;
 
@@ -656,10 +689,10 @@ public class npc : MonoBehaviour
                 option6.text = "";
             }
         }
-        if (interobj == "Àâ»óÀÎ")
+        if (interobj == "ì¡ìƒì¸")
         {
             who.text = "player";
-            content.text = "Å°Åä»ê ÆÄ½º¸¦ ±¸¸ÅÇß´Ù.";
+            content.text = "í‚¤í† ì‚° íŒŒìŠ¤ë¥¼ êµ¬ë§¤í–ˆë‹¤.";
             button.SetActive(true);
             buttonnum = 10;
 
@@ -707,10 +740,10 @@ public class npc : MonoBehaviour
                 option6.text = "";
             }
         }
-        if (interobj == "Àâ»óÀÎ")
+        if (interobj == "ì¡ìƒì¸")
         {
             who.text = "player";
-            content.text = "ºşÂ¦ °í±ÛÀ» ±¸¸ÅÇß´Ù.";
+            content.text = "ë¹¤ì§ ê³ ê¸€ì„ êµ¬ë§¤í–ˆë‹¤.";
             button.SetActive(true);
             buttonnum = 10;
 
@@ -758,10 +791,10 @@ public class npc : MonoBehaviour
                 option6.text = "";
             }
         }
-        if (interobj == "Àâ»óÀÎ")
+        if (interobj == "ì¡ìƒì¸")
         {
             who.text = "player";
-            content.text = "Ä«¼¼Æ® ÇÃ·¹ÀÌ¾î¸¦ ±¸¸ÅÇß´Ù.";
+            content.text = "ì¹´ì„¸íŠ¸ í”Œë ˆì´ì–´ë¥¼ êµ¬ë§¤í–ˆë‹¤.";
             button.SetActive(true);
             buttonnum = 10;
 
@@ -810,8 +843,8 @@ public class npc : MonoBehaviour
     
     public void buttondown()
     {
-         Debug.Log("ÀÛµ¿ÇÔ" + buttonnum);
-        if (interobj=="µ¨¸®¸¸Áê °¡°Ô")
+         Debug.Log("ì‘ë™í•¨" + buttonnum);
+        if (interobj=="ë¸ë¦¬ë§Œì¥¬ ê°€ê²Œ")
         {
           
             Debug.Log(optnum+"");
@@ -831,7 +864,7 @@ public class npc : MonoBehaviour
                 }
                 else if(manjufirst==0&&buttonnum==0)
                 {
-                    who.text = "Á¤¹Î";
+                    who.text = "ì •ë¯¼";
                     content.text = manjucontent[buttonnum];
                     buttonnum++;
                 }
@@ -845,16 +878,16 @@ public class npc : MonoBehaviour
                    
                     talksqu.SetActive(false);
                     buttonnum = 0;
-                    Debug.Log("ÀÛµ¿ÇÔ"+buttonnum);
+                    Debug.Log("ì‘ë™í•¨"+buttonnum);
                     interobj = null;
                     content.text = "";
                     manjufirst = 1;
                 }
                 else
                 {
-                    if (manjucontent[buttonnum].Substring(0,2)=="Á¤¹Î")
+                    if (manjucontent[buttonnum].Substring(0,2)=="ì •ë¯¼")
                     {
-                        who.text = "Á¤¹Î";
+                        who.text = "ì •ë¯¼";
                         content.text = manjucontent[buttonnum].Substring(2);
                     }
                     else
@@ -870,7 +903,7 @@ public class npc : MonoBehaviour
             }
             else if(manjufirst==1)
             {
-                if(buttonnum>14)//±¸¸ÅÇßÀ»½Ã
+                if(buttonnum>14)//êµ¬ë§¤í–ˆì„ì‹œ
                 {
                     talksqu.SetActive(false);
                     buttonnum = 0;
@@ -888,7 +921,7 @@ public class npc : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("µé¾î¿È");
+                    Debug.Log("ë“¤ì–´ì˜´");
                     if(buttonnum>1)
                     {
                         talksqu.SetActive(false);
@@ -909,8 +942,8 @@ public class npc : MonoBehaviour
                     else if(buttonnum==1)
                     {
                         buttonnum++;
-                        who.text = "Á¤¹Î";
-                        content.text = "¸»¶ûÇÏ°í ÂËµæÇÏ°í °í¼ÒÇÑ Ä¿½ºÅ¸µåÀÇ Çâ±â¸¦...";
+                        who.text = "ì •ë¯¼";
+                        content.text = "ë§ë‘í•˜ê³  ì«€ë“í•˜ê³  ê³ ì†Œí•œ ì»¤ìŠ¤íƒ€ë“œì˜ í–¥ê¸°ë¥¼...";
                         //buttonnum++;
                     }
                     else if(buttonnum==0)
@@ -925,8 +958,8 @@ public class npc : MonoBehaviour
                                 option3.text = "";
                             }
                         }
-                        who.text = "Á¤¹Î";
-                        content.text = "¾Æ´Ï! ÁöÇÏÃ¶¿¡¼­ ¸¸Áê¸¦ »Ñ¸®Ä¡°í °¡´Ù´Ï...!";
+                        who.text = "ì •ë¯¼";
+                        content.text = "ì•„ë‹ˆ! ì§€í•˜ì² ì—ì„œ ë§Œì¥¬ë¥¼ ë¿Œë¦¬ì¹˜ê³  ê°€ë‹¤ë‹ˆ...!";
                         buttonnum++;
                     }
                     
@@ -940,7 +973,7 @@ public class npc : MonoBehaviour
         }
 
 
-        if (interobj == "¿Ê °¡°Ô")
+        if (interobj == "ì˜· ê°€ê²Œ")
         {
 
            
@@ -985,7 +1018,7 @@ public class npc : MonoBehaviour
 
 
         }
-        if (interobj == "ÆíÀÇÁ¡")
+        if (interobj == "í¸ì˜ì ")
         {
 
 
@@ -1008,7 +1041,11 @@ public class npc : MonoBehaviour
 
 
         }
+<<<<<<< HEAD
         if (interobj == "°è´Ü_ÁÂÃø»ó´Ü" || interobj == "°è´Ü_ÁÂÃøÇÏ´Ü" || interobj == "°è´Ü_¿ìÃøÁß¾Ó"||gameObject.name == "1È£¼±½Â°­Àå°è´Ü" || gameObject.name == "ÁöÇÏ2ÃşÇÏ´Ü" || gameObject.name == "ÁöÇÏ2Ãş»ó´Ü")
+=======
+        if (interobj == "ê³„ë‹¨_ì¢Œì¸¡ìƒë‹¨" || interobj == "ê³„ë‹¨_ì¢Œì¸¡í•˜ë‹¨" || interobj == "ê³„ë‹¨_ìš°ì¸¡ì¤‘ì•™")
+>>>>>>> main
         {
             talksqu.SetActive(false);
             buttonnum = 0;
@@ -1026,7 +1063,7 @@ public class npc : MonoBehaviour
 
         }
 
-        if (interobj == "°³Âû±¸")
+        if (interobj == "ê°œì°°êµ¬")
         {
 
 
@@ -1049,7 +1086,7 @@ public class npc : MonoBehaviour
 
 
         }
-        if (interobj=="Àâ»óÀÎ")
+        if (interobj=="ì¡ìƒì¸")
         {
             if(buttonnum>9)
             {
@@ -1069,21 +1106,21 @@ public class npc : MonoBehaviour
                     interobj = null;
                     content.text = "";
                 }
-                if (jobcontent[buttonnum].Substring(0, 2) == "ÁöÈÆ")
+                if (jobcontent[buttonnum].Substring(0, 2) == "ì§€í›ˆ")
                 {
-                    who.text = "ÁöÈÆ";
+                    who.text = "ì§€í›ˆ";
                     content.text = jobcontent[buttonnum].Substring(2);
                 }
                 else
                 {
-                    who.text = "Àâ»óÀÎ";
+                    who.text = "ì¡ìƒì¸";
                     content.text = jobcontent[buttonnum];
                 }
                 buttonnum++;
             }
         }
         
-        if (interobj == "½Ãºñ°Å´Â Ãë°´")
+        if (interobj == "ì‹œë¹„ê±°ëŠ” ì·¨ê°")
         {
 
 
@@ -1113,7 +1150,7 @@ public class npc : MonoBehaviour
 
 
 
-        if (interobj == "Çê¼Ò¸® ÇÏ´Â ³ëÀÎ")
+        if (interobj == "í—›ì†Œë¦¬ í•˜ëŠ” ë…¸ì¸")
         {
             buttonnum++;
             if (buttonnum > 7)
@@ -1125,14 +1162,14 @@ public class npc : MonoBehaviour
             }
             else
             {
-                who.text = "Çê¼Ò¸® ÇÏ´Â ³ëÀÎ";
+                who.text = "í—›ì†Œë¦¬ í•˜ëŠ” ë…¸ì¸";
                 content.text = weildcontent[buttonnum];
 
             }
         }
-        else if(interobj == "µµ¿òÀÌ ÇÊ¿äÇØº¸ÀÌ´Â ³ëÀÎ")
+        else if(interobj == "ë„ì›€ì´ í•„ìš”í•´ë³´ì´ëŠ” ë…¸ì¸")
         {
-            if(buttonnum==0&&glassinter==1) // ÇÑ ¹ø »óÈ£ÀÛ¿ëÀ» ³¡³ÂÀ¸¸é
+            if(buttonnum==0&&glassinter==1) // í•œ ë²ˆ ìƒí˜¸ì‘ìš©ì„ ëëƒˆìœ¼ë©´
             {
                 talksqu.SetActive(false);
                 buttonnum = 0;
@@ -1160,21 +1197,21 @@ public class npc : MonoBehaviour
                     }
                     else if (glass == 1)
                     {
-                        if (helpcontent[buttonnum] == "¿ì¸® ¼ÕÁÖ °°¾Æ¼­ ÁÖ´Â °Å¾ß...")
+                        if (helpcontent[buttonnum] == "ìš°ë¦¬ ì†ì£¼ ê°™ì•„ì„œ ì£¼ëŠ” ê±°ì•¼...")
                         {
                             options.SetActive(true);
                             option3_bt.SetActive(false);
-                            option1.text = "> ¾È ÁÖ¼Åµµ µÅ¿ä";
-                            option2.text = "> °¨»çÇÕ´Ï´Ù";
+                            option1.text = "> ì•ˆ ì£¼ì…”ë„ ë¼ìš”";
+                            option2.text = "> ê°ì‚¬í•©ë‹ˆë‹¤";
                         }
-                        who.text = "µµ¿òÀÌ ÇÊ¿äÇØº¸ÀÌ´Â ³ëÀÎ";
+                        who.text = "ë„ì›€ì´ í•„ìš”í•´ë³´ì´ëŠ” ë…¸ì¸";
                         content.text = helpcontent[buttonnum];
                     }
 
                 }
                 else
                 {
-                    who.text = "µµ¿òÀÌ ÇÊ¿äÇØº¸ÀÌ´Â ³ëÀÎ";
+                    who.text = "ë„ì›€ì´ í•„ìš”í•´ë³´ì´ëŠ” ë…¸ì¸";
                     content.text = helpcontent[buttonnum];
 
                 }
@@ -1182,7 +1219,7 @@ public class npc : MonoBehaviour
             
         }
 
-        else if (interobj == "¹°°ÇÀ» ÈÉÄ¡´Â ³ëÀÎ")
+        else if (interobj == "ë¬¼ê±´ì„ í›”ì¹˜ëŠ” ë…¸ì¸")
         {
             buttonnum++;
             if (buttonnum > 0)
@@ -1196,13 +1233,13 @@ public class npc : MonoBehaviour
             }
             else
             {
-                who.text = "¹°°ÇÀ» ÈÉÄ¡´Â ³ëÀÎ";
+                who.text = "ë¬¼ê±´ì„ í›”ì¹˜ëŠ” ë…¸ì¸";
                 content.text = objcontent[buttonnum];
 
             }
         }
 
-        else if (interobj == "ÁöÈÆ2")
+        else if (interobj == "ì§€í›ˆ2")
         {
             buttonnum++;
             if(buttonnum>4)
@@ -1217,18 +1254,18 @@ public class npc : MonoBehaviour
                         content.text = "";
                         jihoonflag = 3;
                     }
-                    if (jihooninter[buttonnum].Substring(0, 2) == "ÁöÈÆ")
+                    if (jihooninter[buttonnum].Substring(0, 2) == "ì§€í›ˆ")
                     {
-                        who.text = "ÁöÈÆ";
+                        who.text = "ì§€í›ˆ";
 
                     }
                     else if (jihooninter[buttonnum].Substring(0, 2) == "PL")
                     {
                         who.text = "player";
                     }
-                    else if (jihooninter[buttonnum].Substring(0, 2) == "Á¤¹Î")
+                    else if (jihooninter[buttonnum].Substring(0, 2) == "ì •ë¯¼")
                     {
-                        who.text = "Á¤¹Î";
+                        who.text = "ì •ë¯¼";
                     }
                     content.text = jihooninter[buttonnum].Substring(2);
                 }
@@ -1251,9 +1288,9 @@ public class npc : MonoBehaviour
            
             else
             {
-                if (jihooninter[buttonnum].Substring(0,2)=="ÁöÈÆ")
+                if (jihooninter[buttonnum].Substring(0,2)=="ì§€í›ˆ")
                 {
-                    who.text = "ÁöÈÆ";
+                    who.text = "ì§€í›ˆ";
                     
                 }
                 else if (jihooninter[buttonnum].Substring(0,2) == "PL")
@@ -1268,7 +1305,7 @@ public class npc : MonoBehaviour
             }
         }
 
-        else if (interobj == "»çÀÌºñ")
+        else if (interobj == "ì‚¬ì´ë¹„")
         {
             buttonnum++;
             if (buttonnum>10)
@@ -1288,14 +1325,14 @@ public class npc : MonoBehaviour
                     interobj = null;
                     content.text = "";
                 }
-                if (godcontent[buttonnum].Substring(0,2)=="Á¤¹Î")
+                if (godcontent[buttonnum].Substring(0,2)=="ì •ë¯¼")
                 {
-                    who.text = "Á¤¹Î";
+                    who.text = "ì •ë¯¼";
                     content.text = /*playername+*/godcontent[buttonnum].Substring(2);
                 }
                 else
                 {
-                    who.text = "»çÀÌºñ";
+                    who.text = "ì‚¬ì´ë¹„";
                     content.text = /*playername+*/godcontent[buttonnum];
                 }
                 
@@ -1316,14 +1353,14 @@ public class npc : MonoBehaviour
                     who.text = "player";
                     content.text = /*playername+*/godcontent[buttonnum].Substring(2);
                 }
-                else if(godcontent[buttonnum].Substring(0, 2) == "Á¤¹Î")
+                else if(godcontent[buttonnum].Substring(0, 2) == "ì •ë¯¼")
                 {
-                    who.text = "Á¤¹Î";
+                    who.text = "ì •ë¯¼";
                     content.text = /*playername+*/godcontent[buttonnum].Substring(2);
                 }
                 else
                 {
-                    who.text = "»çÀÌºñ";
+                    who.text = "ì‚¬ì´ë¹„";
                     content.text = /*playername+*/godcontent[buttonnum];
                 }
             }
@@ -1333,12 +1370,12 @@ public class npc : MonoBehaviour
 
 
 
-        else if (interobj == "½Ãºñ°Å´Â³ëÀÎ")
+        else if (interobj == "ì‹œë¹„ê±°ëŠ”ë…¸ì¸")
         {
             buttonnum++;
             if (buttonnum > 2)
             {
-                //¿©±â¿¡ ¾È°æÇÃ·¡±× Ãß°¡ ¿¹Á¤
+                //ì—¬ê¸°ì— ì•ˆê²½í”Œë˜ê·¸ ì¶”ê°€ ì˜ˆì •
                 talksqu.SetActive(false);
                 buttonnum = 0;
                 interobj = null;
@@ -1346,14 +1383,14 @@ public class npc : MonoBehaviour
             }
             else
             {
-                who.text = "½Ãºñ °Å´Â ³ëÀÎ";
+                who.text = "ì‹œë¹„ ê±°ëŠ” ë…¸ì¸";
                 content.text = angercontent[buttonnum];
 
             }
         }
 
 
-        else if (interobj == "¿ª¹«½Ç")
+        else if (interobj == "ì—­ë¬´ì‹¤")
         {
             buttonnum++;
             if (buttonnum > 3)
@@ -1366,7 +1403,7 @@ public class npc : MonoBehaviour
             }
             else
             {
-                if (stationcontent[buttonnum].Substring(0,2)=="Á¤¹Î"|| stationcontent[buttonnum].Substring(0, 2)=="ÁöÈÆ")
+                if (stationcontent[buttonnum].Substring(0,2)=="ì •ë¯¼"|| stationcontent[buttonnum].Substring(0, 2)=="ì§€í›ˆ")
                 {
                     who.text = stationcontent[buttonnum].Substring(0, 2);
                     content.text = stationcontent[buttonnum].Substring(2);
@@ -1380,7 +1417,7 @@ public class npc : MonoBehaviour
 
             }
         }
-        else if (interobj=="Á¤¹Î")
+        else if (interobj=="ì •ë¯¼")
         {
            
             if(optnum==1)
@@ -1418,7 +1455,7 @@ public class npc : MonoBehaviour
             }
         }
 
-        else if (interobj == "À½½Ä ÆÄ´Â ÇÒ¸Ó´Ï")
+        else if (interobj == "ìŒì‹ íŒŒëŠ” í• ë¨¸ë‹ˆ")
         {
             if(buttonnum>10)
             {
@@ -1429,8 +1466,8 @@ public class npc : MonoBehaviour
             }
             else if (buttonnum > 9)
             {
-                who.text = "À½½Ä ÆÄ´Â ÇÒ¸Ó´Ï";
-                content.text = "°í¸¶¿ìÀÌ.";
+                who.text = "ìŒì‹ íŒŒëŠ” í• ë¨¸ë‹ˆ";
+                content.text = "ê³ ë§ˆìš°ì´.";
                 buttonnum++;
 
             }
@@ -1448,7 +1485,7 @@ public class npc : MonoBehaviour
             
         }
 
-        else if (interobj == "¾Ş¹úÀÌ")
+        else if (interobj == "ì•µë²Œì´")
         {
             if (buttonnum > 10)
             {
@@ -1459,8 +1496,8 @@ public class npc : MonoBehaviour
             }
             else if (buttonnum > 9)
             {
-                who.text = "Á¤¹Î";
-                content.text = "(ÀÚ´Â Ã´)";
+                who.text = "ì •ë¯¼";
+                content.text = "(ìëŠ” ì²™)";
                 buttonnum++;
 
             }
@@ -1478,7 +1515,7 @@ public class npc : MonoBehaviour
 
         }
 
-        else if (interobj == "ÁöÈÆ")
+        else if (interobj == "ì§€í›ˆ")
         {
             //buttonnum++;
             if (buttonnum > 14)
@@ -1491,23 +1528,23 @@ public class npc : MonoBehaviour
             }
             else if(buttonnum>13)
             {
-                who.text = "Á¤¹Î";
-                content.text = "°°ÀÌ °¡ÀÚ ÁöÈÆ¾Æ!";
+                who.text = "ì •ë¯¼";
+                content.text = "ê°™ì´ ê°€ì ì§€í›ˆì•„!";
                 jihoon_B2.jihoonmove = 1;
                 buttonnum++;
             }
             else if(jihoonflag==1&&optnum==1&&buttonnum>9)
             {
                 who.text = "player";
-                content.text = "ÁöÈÆÀÌ¸¦ µ¥·Á°¥±î?";
+                content.text = "ì§€í›ˆì´ë¥¼ ë°ë ¤ê°ˆê¹Œ?";
                 options.SetActive(true);
                 option3_bt.SetActive(false);
                 option4_bt.SetActive(false);
                 option5_bt.SetActive(false);
                 option6_bt.SetActive(false);
                 button.SetActive(false);
-                option1.text = "> µ¥·Á°£´Ù";
-                option2.text = "> µ¥·Á°¡Áö ¾Ê´Â´Ù";
+                option1.text = "> ë°ë ¤ê°„ë‹¤";
+                option2.text = "> ë°ë ¤ê°€ì§€ ì•ŠëŠ”ë‹¤";
                 jihoonflag = 2;
             }
 
@@ -1516,14 +1553,14 @@ public class npc : MonoBehaviour
                 if (buttonnum > 8)
                 {
                     who.text = "player";
-                    content.text = "ÁöÈÆÀÌ¸¦ µ¥·Á°¥±î?";
+                    content.text = "ì§€í›ˆì´ë¥¼ ë°ë ¤ê°ˆê¹Œ?";
                     options.SetActive(true);
                     option3_bt.SetActive(false);
                     option4_bt.SetActive(false);
                     option5_bt.SetActive(false);
                     option6_bt.SetActive(false);
-                    option1.text ="> µ¥·Á°£´Ù";
-                    option2.text = "> µ¥·Á°¡Áö ¾Ê´Â´Ù.";
+                    option1.text ="> ë°ë ¤ê°„ë‹¤";
+                    option2.text = "> ë°ë ¤ê°€ì§€ ì•ŠëŠ”ë‹¤.";
                     jihoonflag = 2;
                 }
                 else
@@ -1546,10 +1583,10 @@ public class npc : MonoBehaviour
             else if(jihoonflag==0)
             {
                 buttonnum++;
-                if (jihoonfirst[buttonnum].Substring(0, 2) == "Á¤¹Î" || jihoonfirst[buttonnum].Substring(0, 2) == "ÁöÈÆ")
+                if (jihoonfirst[buttonnum].Substring(0, 2) == "ì •ë¯¼" || jihoonfirst[buttonnum].Substring(0, 2) == "ì§€í›ˆ")
                 {
                     who.text = jihoonfirst[buttonnum].Substring(0, 2);
-                    if(jihoonfirst[buttonnum].Substring(2)== "À¸¾Æ¾Æ¾Æ¾Æ¾Ó!!")
+                    if(jihoonfirst[buttonnum].Substring(2)== "ìœ¼ì•„ì•„ì•„ì•„ì•™!!")
                     {
                         content.fontSize = 7;
 
@@ -1559,12 +1596,12 @@ public class npc : MonoBehaviour
                         content.fontSize = 3;
                     }
                     
-                    if(jihoonfirst[buttonnum].Substring(2) == "¹Ì¾Æ°°Àºµ¥...¾î¶±ÇÒ±î¿ä?")
+                    if(jihoonfirst[buttonnum].Substring(2) == "ë¯¸ì•„ê°™ì€ë°...ì–´ë–¡í• ê¹Œìš”?")
                     {
                         options.SetActive(true);
                         option3_bt.SetActive(false);
-                        option1.text = "> ÀÌ¸§À» ¹°¾îº»´Ù";
-                        option2.text = "> ¸ÔÀ» °ÍÀ» °Ç³Ù´Ù";//ÀÎº¥Åä¸® ¿­°í À½½Ä ºĞ·ùÀÇ ¾ÆÀÌÅÛÀ» Áà¾ßÇÑ´Ù 
+                        option1.text = "> ì´ë¦„ì„ ë¬¼ì–´ë³¸ë‹¤";
+                        option2.text = "> ë¨¹ì„ ê²ƒì„ ê±´ë„¨ë‹¤";//ì¸ë²¤í† ë¦¬ ì—´ê³  ìŒì‹ ë¶„ë¥˜ì˜ ì•„ì´í…œì„ ì¤˜ì•¼í•œë‹¤ 
                         jihoonflag = 1;
                         
                     }
@@ -1583,43 +1620,43 @@ public class npc : MonoBehaviour
     }
     void OnMouseDown()
     {
-        Debug.Log("¸¶¿ì½ºÅ¬¸¯°¨Áö");
+        Debug.Log("ë§ˆìš°ìŠ¤í´ë¦­ê°ì§€");
         Debug.Log(gameObject.name);
         Debug.Log(presentcol);
         Debug.Log(intertest.colitemname);
 
-        if (playercolflag==1&&gameObject.name == "Çê¼Ò¸® ÇÏ´Â ³ëÀÎ" && presentcol == "Çê¼Ò¸® ÇÏ´Â ³ëÀÎ")
+        if (playercolflag==1&&gameObject.name == "í—›ì†Œë¦¬ í•˜ëŠ” ë…¸ì¸" && presentcol == "í—›ì†Œë¦¬ í•˜ëŠ” ë…¸ì¸")
         {
-            interobj = "Çê¼Ò¸® ÇÏ´Â ³ëÀÎ";
+            interobj = "í—›ì†Œë¦¬ í•˜ëŠ” ë…¸ì¸";
            
             if(buttonnum==0)
             {
                 talksqu.SetActive(true);
-                who.text = "Çê¼Ò¸® ÇÏ´Â ³ëÀÎ";
+                who.text = "í—›ì†Œë¦¬ í•˜ëŠ” ë…¸ì¸";
                 content.text = weildcontent[0];
             }
            
-            Debug.Log("Çê¼Ò¸® ÇÏ´Â ³ëÀÎ Å¬¸¯µÊ");
+            Debug.Log("í—›ì†Œë¦¬ í•˜ëŠ” ë…¸ì¸ í´ë¦­ë¨");
            
         }
 
-        if (playercolflag == 1 && gameObject.name == "µµ¿òÀÌ ÇÊ¿äÇØº¸ÀÌ´Â ³ëÀÎ" && presentcol == "µµ¿òÀÌ ÇÊ¿äÇØº¸ÀÌ´Â ³ëÀÎ")
+        if (playercolflag == 1 && gameObject.name == "ë„ì›€ì´ í•„ìš”í•´ë³´ì´ëŠ” ë…¸ì¸" && presentcol == "ë„ì›€ì´ í•„ìš”í•´ë³´ì´ëŠ” ë…¸ì¸")
         {
-            interobj = "µµ¿òÀÌ ÇÊ¿äÇØº¸ÀÌ´Â ³ëÀÎ";
+            interobj = "ë„ì›€ì´ í•„ìš”í•´ë³´ì´ëŠ” ë…¸ì¸";
 
             if (buttonnum == 0)
             {
                 if(glassinter==0)
                 {
                     talksqu.SetActive(true);
-                    who.text = "µµ¿òÀÌ ÇÊ¿äÇØº¸ÀÌ´Â ³ëÀÎ";
+                    who.text = "ë„ì›€ì´ í•„ìš”í•´ë³´ì´ëŠ” ë…¸ì¸";
                     content.text = helpcontent[0];
                 }
                 else
                 {
                     talksqu.SetActive(true);
-                    who.text = "µµ¿òÀÌ ÇÊ¿äÇØº¸ÀÌ´Â ³ëÀÎ";
-                    content.text = "¾È°æÀ» Âø¿ëÇÏ´õ´Ï ¹«¾ğ°¥ Áß¾óÁß¾ó ÀĞ°í ÀÖ´Ù.";
+                    who.text = "ë„ì›€ì´ í•„ìš”í•´ë³´ì´ëŠ” ë…¸ì¸";
+                    content.text = "ì•ˆê²½ì„ ì°©ìš©í•˜ë”ë‹ˆ ë¬´ì–¸ê°ˆ ì¤‘ì–¼ì¤‘ì–¼ ì½ê³  ìˆë‹¤.";
                 }
                 
             }
@@ -1628,15 +1665,15 @@ public class npc : MonoBehaviour
 
         }
 
-        if (playercolflag == 1 && gameObject.name == "¹°°ÇÀ» ÈÉÄ¡´Â ³ëÀÎ" && presentcol == "¹°°ÇÀ» ÈÉÄ¡´Â ³ëÀÎ")
+        if (playercolflag == 1 && gameObject.name == "ë¬¼ê±´ì„ í›”ì¹˜ëŠ” ë…¸ì¸" && presentcol == "ë¬¼ê±´ì„ í›”ì¹˜ëŠ” ë…¸ì¸")
         {
-            interobj = "¹°°ÇÀ» ÈÉÄ¡´Â ³ëÀÎ";
+            interobj = "ë¬¼ê±´ì„ í›”ì¹˜ëŠ” ë…¸ì¸";
 
             if (buttonnum == 0)
             {
                 npcmove.moveflag = 0;
                 talksqu.SetActive(true);
-                who.text = "¹°°ÇÀ» ÈÉÄ¡´Â ³ëÀÎ";
+                who.text = "ë¬¼ê±´ì„ í›”ì¹˜ëŠ” ë…¸ì¸";
                 content.text = objcontent[0];
             }
 
@@ -1644,14 +1681,14 @@ public class npc : MonoBehaviour
 
         }
 
-        if (playercolflag == 1 && gameObject.name == "½Ãºñ°Å´Â³ëÀÎ" && presentcol == "½Ãºñ°Å´Â³ëÀÎ")
+        if (playercolflag == 1 && gameObject.name == "ì‹œë¹„ê±°ëŠ”ë…¸ì¸" && presentcol == "ì‹œë¹„ê±°ëŠ”ë…¸ì¸")
         {
-            interobj = "½Ãºñ°Å´Â³ëÀÎ";
+            interobj = "ì‹œë¹„ê±°ëŠ”ë…¸ì¸";
 
             if (buttonnum == 0)
             {
                 talksqu.SetActive(true);
-                who.text = "½Ãºñ °Å´Â ³ëÀÎ";
+                who.text = "ì‹œë¹„ ê±°ëŠ” ë…¸ì¸";
                 content.text = angercontent[0];
             }
 
@@ -1659,9 +1696,9 @@ public class npc : MonoBehaviour
 
         }
 
-        if (playercolflag == 1 && gameObject.name == "µ¨¸®¸¸Áê °¡°Ô" && presentcol == "µ¨¸®¸¸Áê °¡°Ô")
+        if (playercolflag == 1 && gameObject.name == "ë¸ë¦¬ë§Œì¥¬ ê°€ê²Œ" && presentcol == "ë¸ë¦¬ë§Œì¥¬ ê°€ê²Œ")
         {
-            interobj = "µ¨¸®¸¸Áê °¡°Ô";
+            interobj = "ë¸ë¦¬ë§Œì¥¬ ê°€ê²Œ";
             if (manjufirst == 1&& buttonnum==0)
             {
                 talksqu.SetActive(true);
@@ -1670,20 +1707,20 @@ public class npc : MonoBehaviour
                 option5_bt.SetActive(false);
                 option6_bt.SetActive(false);
                 who.text = "system";
-                content.text = "¹«¾ùÀ» ±¸¸ÅÇÒ±î?";
-                option1.text = "> µ¨¸®¸¸Áê";
-                option2.text = "> ÇÖµµ±×";
+                content.text = "ë¬´ì—‡ì„ êµ¬ë§¤í• ê¹Œ?";
+                option1.text = "> ë¸ë¦¬ë§Œì¥¬";
+                option2.text = "> í•«ë„ê·¸";
                 button.SetActive(true);
-                //exit.text = "> »çÁö ¾Ê´Â´Ù.";
+                //exit.text = "> ì‚¬ì§€ ì•ŠëŠ”ë‹¤.";
             }
             else if (buttonnum == 0)
             {
                 talksqu.SetActive(true);
                 options.SetActive(true);
-                who.text = "Á¤¹Î";
+                who.text = "ì •ë¯¼";
                 content.text = "........";
-                option1.text = "> »ç ÁÙ±î¿ä?";
-                option2.text = "> µ· ¾øÀ¸¼¼¿ä?";
+                option1.text = "> ì‚¬ ì¤„ê¹Œìš”?";
+                option2.text = "> ëˆ ì—†ìœ¼ì„¸ìš”?";
                 option3_bt.SetActive(false);
                 option4_bt.SetActive(false);
                 option5_bt.SetActive(false);
@@ -1695,10 +1732,10 @@ public class npc : MonoBehaviour
 
         }
 
-        if (playercolflag == 1 && gameObject.name == "¿Ê °¡°Ô" && presentcol == "¿Ê °¡°Ô")
+        if (playercolflag == 1 && gameObject.name == "ì˜· ê°€ê²Œ" && presentcol == "ì˜· ê°€ê²Œ")
         {
-            interobj = "¿Ê °¡°Ô";
-            Debug.Log(clofirst +"¿Ê ÇÃ·¡±×");
+            interobj = "ì˜· ê°€ê²Œ";
+            Debug.Log(clofirst +"ì˜· í”Œë˜ê·¸");
             if (buttonnum == 0 && clofirst == 0)
             {
                 
@@ -1710,7 +1747,7 @@ public class npc : MonoBehaviour
             if (buttonnum==0&&clofirst != 0)
 
             {
-                Debug.Log("µé¾î¿È");
+                Debug.Log("ë“¤ì–´ì˜´");
                 talksqu.SetActive(true);
                 options.SetActive(true);
                 option3_bt.SetActive(true);
@@ -1719,23 +1756,23 @@ public class npc : MonoBehaviour
                 option6_bt.SetActive(false);
                 button.SetActive(true);
                 who.text = "system";
-                content.text = "¹«¾ùÀ» ±¸¸ÅÇÒ±î?";
-                option1.text = "> Â¯±¸ Àá¿Ê";
-                option2.text = "> ¿ä»óÇÑ ¸ÇÅõ¸Ç";
-                option3.text = "> º¡°ÅÁö";
-                //exit.text = "> »çÁö ¾Ê´Â´Ù.";
+                content.text = "ë¬´ì—‡ì„ êµ¬ë§¤í• ê¹Œ?";
+                option1.text = "> ì§±êµ¬ ì ì˜·";
+                option2.text = "> ìš”ìƒí•œ ë§¨íˆ¬ë§¨";
+                option3.text = "> ë²™ê±°ì§€";
+                //exit.text = "> ì‚¬ì§€ ì•ŠëŠ”ë‹¤.";
             }
 
 
 
         }
 
-        if (playercolflag == 1 && gameObject.name == "ÆíÀÇÁ¡" && presentcol == "ÆíÀÇÁ¡")
+        if (playercolflag == 1 && gameObject.name == "í¸ì˜ì " && presentcol == "í¸ì˜ì ")
         {
-            interobj = "ÆíÀÇÁ¡";
+            interobj = "í¸ì˜ì ";
            
             
-                Debug.Log("µé¾î¿È");
+                Debug.Log("ë“¤ì–´ì˜´");
                 talksqu.SetActive(true);
                 options.SetActive(true);
                 option3_bt.SetActive(true);
@@ -1744,20 +1781,20 @@ public class npc : MonoBehaviour
                 option6_bt.SetActive(false);
                 button.SetActive(true);
                 who.text = "system";
-                content.text = "¹«¾ùÀ» ±¸¸ÅÇÒ±î?";
-                option1.text = "> ¹°";
-                option2.text = "> º¸Á¶¹èÅÍ¸®";
-                option3.text = "> °úÀÚ";
-                //exit.text = "> »çÁö ¾Ê´Â´Ù.";
+                content.text = "ë¬´ì—‡ì„ êµ¬ë§¤í• ê¹Œ?";
+                option1.text = "> ë¬¼";
+                option2.text = "> ë³´ì¡°ë°°í„°ë¦¬";
+                option3.text = "> ê³¼ì";
+                //exit.text = "> ì‚¬ì§€ ì•ŠëŠ”ë‹¤.";
 
 
 
 
         }
 
-        if (playercolflag == 1 && gameObject.name == "¿ª¹«½Ç" && presentcol == "¿ª¹«½Ç")
+        if (playercolflag == 1 && gameObject.name == "ì—­ë¬´ì‹¤" && presentcol == "ì—­ë¬´ì‹¤")
         {
-            interobj = "¿ª¹«½Ç";
+            interobj = "ì—­ë¬´ì‹¤";
 
             if (buttonnum == 0)
             {
@@ -1770,9 +1807,9 @@ public class npc : MonoBehaviour
 
         }
 
-        if (playercolflag == 1 && gameObject.name == "ÁöÈÆ"&&presentcol == "ÁöÈÆ")
+        if (playercolflag == 1 && gameObject.name == "ì§€í›ˆ"&&presentcol == "ì§€í›ˆ")
         {
-            interobj = "ÁöÈÆ";
+            interobj = "ì§€í›ˆ";
 
             if (buttonnum == 0&&jihoonflag==0)
             {
@@ -1793,22 +1830,22 @@ public class npc : MonoBehaviour
 
         }
 
-        if(gameObject.name == "ÁöÈÆ"&&jihoonflag == 2 && (jihoon_B2.jihoonmove == 1))
+        if(gameObject.name == "ì§€í›ˆ"&&jihoonflag == 2 && (jihoon_B2.jihoonmove == 1))
         {
-            interobj = "ÁöÈÆ2";
+            interobj = "ì§€í›ˆ2";
 
             talksqu.SetActive(true);
             options.SetActive(false);
 
             who.text = "player";
-            content.text = "À°È¸ ÁÁ¾ÆÇØ?";
+            content.text = "ìœ¡íšŒ ì¢‹ì•„í•´?";
 
 
 
         }
-        if (gameObject.name == "Á¤¹Î"&&buttonnum==0)
+        if (gameObject.name == "ì •ë¯¼"&&buttonnum==0)
         {
-            interobj = "Á¤¹Î";
+            interobj = "ì •ë¯¼";
 
             talksqu.SetActive(true);
             options.SetActive(true);
@@ -1818,30 +1855,30 @@ public class npc : MonoBehaviour
             option6_bt.SetActive(false);
             who.text = "player";
             content.text = "";
-            option1.text = "> ¿äÁò À°È¸ 2ÀÎºĞÀÌ ¸¸¿øÀÌ·¡¿ä.";
-            option2.text = "> µ¨¸®¸¸Áê¸¦ ½½¸ç½Ã °Ç³½´Ù.";
+            option1.text = "> ìš”ì¦˜ ìœ¡íšŒ 2ì¸ë¶„ì´ ë§Œì›ì´ë˜ìš”.";
+            option2.text = "> ë¸ë¦¬ë§Œì¥¬ë¥¼ ìŠ¬ë©°ì‹œ ê±´ë‚¸ë‹¤.";
             button.SetActive(false);
 
 
         }
 
-        if (playercolflag == 1 && gameObject.name == "»çÀÌºñ"&&presentcol == "»çÀÌºñ")
+        if (playercolflag == 1 && gameObject.name == "ì‚¬ì´ë¹„"&&presentcol == "ì‚¬ì´ë¹„")
         {
-            interobj = "»çÀÌºñ";
+            interobj = "ì‚¬ì´ë¹„";
 
             if (buttonnum == 0)
             {
                 talksqu.SetActive(true);
-                who.text = "»çÀÌºñ";
+                who.text = "ì‚¬ì´ë¹„";
                 content.text = godcontent[buttonnum];
                 options.SetActive(true);
                 option3_bt.SetActive(true);
                 option4_bt.SetActive(false);
                 option5_bt.SetActive(false);
                 option6_bt.SetActive(false);
-                option1.text = "> ÁøÂ¥¿ä?";
-                option2.text = "> (°¡¸¸È÷ ÀÖ´Â´Ù)";
-                option3.text = "> (½Ãºñ¸¦ °Ç´Ù)";
+                option1.text = "> ì§„ì§œìš”?";
+                option2.text = "> (ê°€ë§Œíˆ ìˆëŠ”ë‹¤)";
+                option3.text = "> (ì‹œë¹„ë¥¼ ê±´ë‹¤)";
                 button.SetActive(false);
             }
 
@@ -1850,55 +1887,55 @@ public class npc : MonoBehaviour
         }
 
 
-        if (playercolflag == 1 && gameObject.name== "½Ãºñ°Å´Â Ãë°´"&&presentcol == "½Ãºñ°Å´Â Ãë°´")
+        if (playercolflag == 1 && gameObject.name== "ì‹œë¹„ê±°ëŠ” ì·¨ê°"&&presentcol == "ì‹œë¹„ê±°ëŠ” ì·¨ê°")
         {
-            interobj = "½Ãºñ°Å´Â Ãë°´";
+            interobj = "ì‹œë¹„ê±°ëŠ” ì·¨ê°";
 
             if (buttonnum == 0&&sibiinter==0)
             {
                 talksqu.SetActive(true);
-                who.text = "½Ãºñ°Å´ÂÃë°´";
-                content.text = "°¡À§! ¹ÙÀ§! º¸!";
+                who.text = "ì‹œë¹„ê±°ëŠ”ì·¨ê°";
+                content.text = "ê°€ìœ„! ë°”ìœ„! ë³´!";
                 options.SetActive(true);
                 option3_bt.SetActive(true);
                 option4_bt.SetActive(false);
                 option5_bt.SetActive(false);
                 option6_bt.SetActive(false);
-                option1.text = "> °¡À§";
-                option2.text = "> ¹ÙÀ§";
-                option3.text = "> º¸";
+                option1.text = "> ê°€ìœ„";
+                option2.text = "> ë°”ìœ„";
+                option3.text = "> ë³´";
                 button.SetActive(false);
             }
             else
             {
                 talksqu.SetActive(true);
-                who.text = "½Ãºñ°Å´ÂÃë°´";
-                content.text = "¶¼À×...!";
+                who.text = "ì‹œë¹„ê±°ëŠ”ì·¨ê°";
+                content.text = "ë–¼ì‰...!";
             }
 
 
 
         }
-        if (playercolflag == 1 && gameObject.name == "Àâ»óÀÎ"&&presentcol=="Àâ»óÀÎ")
+        if (playercolflag == 1 && gameObject.name == "ì¡ìƒì¸"&&presentcol=="ì¡ìƒì¸")
         {
-            interobj = "Àâ»óÀÎ";
+            interobj = "ì¡ìƒì¸";
 
             if (buttonnum == 0)
             {
                 talksqu.SetActive(true);
-                who.text = "Àâ»óÀÎ";
-                content.text = "1000¿øÂ¥¸® µÎ Àå, µÎ Àå¸¸ ¹Ş°Ú½À´Ï´Ù.";
+                who.text = "ì¡ìƒì¸";
+                content.text = "1000ì›ì§œë¦¬ ë‘ ì¥, ë‘ ì¥ë§Œ ë°›ê² ìŠµë‹ˆë‹¤.";
               
                 options.SetActive(true);
                 option3_bt.SetActive(true);
                 button.SetActive(true);
                 
-                option1.text = "> ¿òÁ÷ÀÌ´Â °­¾ÆÁö";
-                option2.text = "> ÆÈÅä½Ã";
-                option3.text = "> Ç®ÆäÀÌ½º µÎ°Ç";
-                option4.text= "> Å°Åä»ê ÆÄ½º";
-                option5.text = "> ºşÂ¦ °í±Û";
-                option6.text = "> Ä«¼¼Æ® ÇÃ·¹ÀÌ¾î";
+                option1.text = "> ì›€ì§ì´ëŠ” ê°•ì•„ì§€";
+                option2.text = "> íŒ”í† ì‹œ";
+                option3.text = "> í’€í˜ì´ìŠ¤ ë‘ê±´";
+                option4.text= "> í‚¤í† ì‚° íŒŒìŠ¤";
+                option5.text = "> ë¹¤ì§ ê³ ê¸€";
+                option6.text = "> ì¹´ì„¸íŠ¸ í”Œë ˆì´ì–´";
                 
             }
 
@@ -1906,14 +1943,14 @@ public class npc : MonoBehaviour
 
         }
 
-        if (playercolflag == 1 && gameObject.name == "À½½Ä ÆÄ´Â ÇÒ¸Ó´Ï" && presentcol == "À½½Ä ÆÄ´Â ÇÒ¸Ó´Ï")
+        if (playercolflag == 1 && gameObject.name == "ìŒì‹ íŒŒëŠ” í• ë¨¸ë‹ˆ" && presentcol == "ìŒì‹ íŒŒëŠ” í• ë¨¸ë‹ˆ")
         {
-            interobj = "À½½Ä ÆÄ´Â ÇÒ¸Ó´Ï";
+            interobj = "ìŒì‹ íŒŒëŠ” í• ë¨¸ë‹ˆ";
 
             if (buttonnum == 0)
             {
                 talksqu.SetActive(true);
-                who.text = "À½½Ä ÆÄ´Â ÇÒ¸Ó´Ï";
+                who.text = "ìŒì‹ íŒŒëŠ” í• ë¨¸ë‹ˆ";
                 content.text = "....";
 
                 options.SetActive(true);
@@ -1923,8 +1960,8 @@ public class npc : MonoBehaviour
                 option6_bt.SetActive(false);
                 button.SetActive(true);
 
-                option1.text = "> ±è¹ä";
-                option2.text = "> Âğ ¿Á¼ö¼ö";
+                option1.text = "> ê¹€ë°¥";
+                option2.text = "> ì° ì˜¥ìˆ˜ìˆ˜";
                 
 
             }
@@ -1932,14 +1969,14 @@ public class npc : MonoBehaviour
 
 
         }
-        if (playercolflag == 1 && gameObject.name == "¾Ş¹úÀÌ" && presentcol == "¾Ş¹úÀÌ")
+        if (playercolflag == 1 && gameObject.name == "ì•µë²Œì´" && presentcol == "ì•µë²Œì´")
         {
-            interobj = "¾Ş¹úÀÌ";
+            interobj = "ì•µë²Œì´";
 
             if (buttonnum == 0)
             {
                 talksqu.SetActive(true);
-                who.text = "¾Ş¹úÀÌ";
+                who.text = "ì•µë²Œì´";
                 content.text = "~..~";
 
                 options.SetActive(true);
@@ -1949,9 +1986,9 @@ public class npc : MonoBehaviour
                 option6_bt.SetActive(false);
                 button.SetActive(true);
 
-                option1.text = "> Ä«¼¼Æ® 96";
-                option2.text = "> Ä«¼¼Æ® 32";
-                option3.text = "> Ä«¼¼Æ® 3";
+                option1.text = "> ì¹´ì„¸íŠ¸ 96";
+                option2.text = "> ì¹´ì„¸íŠ¸ 32";
+                option3.text = "> ì¹´ì„¸íŠ¸ 3";
 
 
             }
