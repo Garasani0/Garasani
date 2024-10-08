@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class HealthReduce : MonoBehaviour
 {
-    private Health health; // PlayerHealth 스크립트 참조
-
+    private Health health;
     void Start()
     {
-        // 충돌이 일어나는 오브젝트에 Health 컴포넌트가 있는지 확인
         health = GetComponent<Health>();
 
         if (health == null)
@@ -19,11 +17,11 @@ public class HealthReduce : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.tag == "NPC") // 떠돌아다니는 사람들에게 Tag를 "NPC"로 설정
+        if (collision.collider.tag == "NPC")
         {
-            if (health != null) // Health 컴포넌트가 제대로 초기화되었는지 확인
+            if (health != null)
             {
-                health.TakeDamage(5); // 피를 5만큼 깎음
+                health.TakeDamage(5);
                 Debug.Log("충돌 발생! NPC로부터 데미지를 입음.");
             }
         }
