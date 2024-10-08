@@ -25,4 +25,5 @@ public class PlayerController : MonoBehaviour
         transform.position = state.playerPosition;
         // 필요한 다른 게임 상태 데이터 적용
     }
+
 }

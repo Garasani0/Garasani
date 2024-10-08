@@ -21,6 +21,7 @@ TagManager:
   - chosen4
   - chosen5
   - chosen6
+  - Pigeon
   layers:
   - Default
   - TransparentFX

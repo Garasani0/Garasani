@@ -26,6 +26,7 @@ public class playerState : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Player.moveflag = 1;
+        customize.sceneflag = 3;
     }
 }

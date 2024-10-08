@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public int playerMoney;
     public List<Item> inventoryItems = new List<Item>();
 
+
     void Awake()
     {
         if (instance == null)
@@ -60,4 +61,6 @@ public class GameManager : MonoBehaviour
         playerMoney -= amount;
         Debug.Log("°ñµå °¨¼Ò: " + amount);
     }
+
+
 }
