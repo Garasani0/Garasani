@@ -12,7 +12,7 @@ public class Sindorim_1 : MonoBehaviour
         customize.sceneflag = 4;
         customize.moveflag = 1;
 
-        //지훈 따라다니도록
+        //지훈이 플레이어를 따라다니도록
         jihoon_B2.jihoonmove = 1;
 
         //CSV 파일 로드

@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class RedLightFlicker : MonoBehaviour
@@ -13,6 +14,8 @@ public class RedLightFlicker : MonoBehaviour
 
     private float targetAlpha;  // 목표 알파 값
     private float alphaChangeRate;  // 알파 값 변화 비율
+
+    public TMP_Text equippedItemName;
 
     void Start()
     {
@@ -42,6 +45,8 @@ public class RedLightFlicker : MonoBehaviour
             // 목표 알파 값을 전환
             targetAlpha = (targetAlpha == maxAlpha) ? minAlpha : maxAlpha;
         }
+
+
     }
 
     //충돌시 자동연출 

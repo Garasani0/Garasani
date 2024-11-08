@@ -7,10 +7,8 @@ using UnityEngine.SceneManagement;
 
 public class itemManager : MonoBehaviour
 {
-
-    public TMP_Text context;
-    public TMP_Text who;
     public Dialogue[] contextList;
+    public GameObject redLight;
 
     int itemFlag = 0;
     public GameObject item;
@@ -31,7 +29,7 @@ public class itemManager : MonoBehaviour
         
         if (itemFlag == 0 && intertest.colitemname == "item_비상조명등")
         {
-
+            redLight.SetActive(false);
             StartCoroutine(AutoEvent());
 
 
