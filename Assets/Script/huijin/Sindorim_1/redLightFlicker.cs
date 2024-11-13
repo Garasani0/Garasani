@@ -5,7 +5,6 @@ using UnityEngine;
 public class RedLightFlicker : MonoBehaviour
 {
     public Dialogue[] contextList;
-    int dialogueID = 3; //dialogue 시작 아이디
 
     public SpriteRenderer spriteRenderer;  // 스프라이트 렌더러
     public float minAlpha = 0.0f;  // 최소 투명도
@@ -29,7 +28,7 @@ public class RedLightFlicker : MonoBehaviour
 
         //초기 목표 알파 값 설정
         targetAlpha = maxAlpha;
-        alphaChangeRate = flickerSpeed * Time.deltaTime;  //알파 변화 비율 초기화
+        alphaChangeRate = flickerSpeed * Time.deltaTime;
     }
 
     void Update()
