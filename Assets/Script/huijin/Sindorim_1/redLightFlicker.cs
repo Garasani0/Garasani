@@ -1,10 +1,10 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class RedLightFlicker : MonoBehaviour
 {
     public Dialogue[] contextList;
-    int dialogueID = 3; //dialogue 시작 아이디
 
     public SpriteRenderer spriteRenderer;  // 스프라이트 렌더러
     public float minAlpha = 0.0f;  // 최소 투명도
@@ -13,6 +13,8 @@ public class RedLightFlicker : MonoBehaviour
 
     private float targetAlpha;  // 목표 알파 값
     private float alphaChangeRate;  // 알파 값 변화 비율
+
+    public TMP_Text equippedItemName;
 
     void Start()
     {
@@ -26,7 +28,7 @@ public class RedLightFlicker : MonoBehaviour
 
         //초기 목표 알파 값 설정
         targetAlpha = maxAlpha;
-        alphaChangeRate = flickerSpeed * Time.deltaTime;  //알파 변화 비율 초기화
+        alphaChangeRate = flickerSpeed * Time.deltaTime;
     }
 
     void Update()
@@ -42,6 +44,8 @@ public class RedLightFlicker : MonoBehaviour
             // 목표 알파 값을 전환
             targetAlpha = (targetAlpha == maxAlpha) ? minAlpha : maxAlpha;
         }
+
+
     }
 
     //충돌시 자동연출 

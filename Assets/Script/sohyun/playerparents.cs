@@ -1,21 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
-using UnityEngine.EventSystems;
-using System.Globalization;
-using System.Net.Mail;
-using TMPro;
-using System.ComponentModel.Design;
-using System.Runtime.InteropServices;
-using System;
+
 public class playerparents : MonoBehaviour
 {
-  
+    private Vector2 direction;
+
     // Update is called once per frame
     void Update()
     {
+        float dirX = Input.GetAxisRaw("Horizontal"); 
+        float dirY = Input.GetAxisRaw("Vertical");
+        direction.Set(dirX, dirY);
+
         GameObject basebody = GameObject.Find("basebody");
 
         // 현재 객체가 basebody의 부모인지 확인
@@ -28,5 +23,16 @@ public class playerparents : MonoBehaviour
             transform.position = new Vector3(position.x, position.y, transform.position.z);
         }
 
+
+    }
+
+    //방향 벡터 사용
+    public Vector2 GetMovementDirection()
+    {
+        return direction;
+    }
+    public Vector3 GetCurrentPosition()
+    {
+        return new Vector3(transform.position.x, transform.position.y, transform.position.z);
     }
 }
