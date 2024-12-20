@@ -4,106 +4,79 @@ using UnityEngine;
 
 public class PigeonSpawner : MonoBehaviour
 {
-    public GameObject pigeonPrefab;  // 비둘기 프리팹
-    public Transform player;         // 플레이어 Transform
-    public Transform map;            // 맵 Transform (맵의 중심 기준)
-    public Transform pillar;         // 기둥 Transform
+    public Transform player;  // 플레이어의 Transform
+    public GameObject pigeonPrefab;  // 비둘기 Prefab
+    public Transform pillar;  // 기준 기둥
+    public SpriteRenderer mapSprite;  // 맵의 SpriteRenderer
+    public float pigeonSpeed = 5f;  // 비둘기 이동 속도
+    public float spawnInterval = 10f;  // 비둘기 생성 간격 (초)
 
-    public float spawnInterval = 10f; // 비둘기 생성 간격 (초)
-
-    private float mapWidth;           // 맵의 너비 (x축)
-    private float mapHeight;          // 맵의 높이 (y축)
-    private bool spawning = false;    // 비둘기 생성 활성화 여부
-
-    public float speed = 5f;
-
-    void Start()
-    {
-        // 맵의 크기를 계산
-        SpriteRenderer mapRenderer = map.GetComponent<SpriteRenderer>();
-        if (mapRenderer != null)
-        {
-            mapWidth = mapRenderer.bounds.size.x;
-            mapHeight = mapRenderer.bounds.size.y;
-        }
-        else
-        {
-            Debug.LogError("Map에 SpriteRenderer가 없습니다. SpriteRenderer를 추가하세요.");
-        }
-    }
+    private float nextSpawnTime = 0f;  // 다음 생성 시간
+    private int currentDirection = 0;  // 현재 비둘기 생성 방향 (0: 상, 1: 하, 2: 좌, 3: 우)
+    private bool canSpawn = false;  // 생성 가능 상태
 
     void Update()
     {
-        // 플레이어가 기둥 아래로 내려가면 비둘기 생성 시작
-        if (player.position.y < pillar.position.y && !spawning)
+        // 플레이어가 기둥 아래로 내려갔을 때 비둘기 생성 시작
+        if (player.position.y < pillar.position.y)
         {
-            spawning = true;
-            StartCoroutine(SpawnPigeons());
+            canSpawn = true;
+        }
+        else
+        {
+            canSpawn = false;
+        }
+
+        if (canSpawn && Time.time >= nextSpawnTime)
+        {
+            SpawnPigeon();
+            nextSpawnTime = Time.time + spawnInterval;  // 다음 생성 시간 갱신
         }
     }
 
-    IEnumerator SpawnPigeons()
+    void SpawnPigeon()
     {
-        while (true)
-        {
-            SpawnPigeon(Vector2.up);    // 아래 -> 위
-            yield return new WaitForSeconds(spawnInterval);
+        Vector3 spawnPosition = Vector3.zero;
+        Vector3 targetPosition = Vector3.zero;
 
-            SpawnPigeon(Vector2.down);  // 위 -> 아래
-            yield return new WaitForSeconds(spawnInterval);
+        // 맵 경계 계산
+        float mapTopY = mapSprite.bounds.max.y;
+        float mapBottomY = mapSprite.bounds.min.y;
+        float mapLeftX = mapSprite.bounds.min.x;
+        float mapRightX = mapSprite.bounds.max.x;
 
-            SpawnPigeon(Vector2.left);  // 오른쪽 -> 왼쪽
-            yield return new WaitForSeconds(spawnInterval);
-
-            SpawnPigeon(Vector2.right); // 왼쪽 -> 오른쪽
-            yield return new WaitForSeconds(spawnInterval);
-        }
-    }
-
-    void SpawnPigeon(Vector2 direction)
-    {
-        Vector3 spawnPosition = Vector3.zero; // 비둘기 시작 위치
-        Vector3 targetPosition = Vector3.zero; // 비둘기가 날아가는 목표 위치
-
-        // 방향별로 스폰 위치와 목표 위치 계산
-        if (direction == Vector2.up)
+        // 현재 방향에 따라 생성 위치와 목표 위치 설정
+        switch (currentDirection)
         {
-            spawnPosition = new Vector3(player.position.x, map.position.y - mapHeight / 2, 0);
-            targetPosition = new Vector3(player.position.x, map.position.y + mapHeight / 2, 0);
-        }
-        else if (direction == Vector2.down)
-        {
-            spawnPosition = new Vector3(player.position.x, map.position.y + mapHeight / 2, 0);
-            targetPosition = new Vector3(player.position.x, map.position.y - mapHeight / 2, 0);
-        }
-        else if (direction == Vector2.left)
-        {
-            spawnPosition = new Vector3(map.position.x + mapWidth / 2, player.position.y, 0);
-            targetPosition = new Vector3(map.position.x - mapWidth / 2, player.position.y, 0);
-        }
-        else if (direction == Vector2.right)
-        {
-            spawnPosition = new Vector3(map.position.x - mapWidth / 2, player.position.y, 0);
-            targetPosition = new Vector3(map.position.x + mapWidth / 2, player.position.y, 0);
+            case 0: // 상 (위에서 아래로)
+                spawnPosition = new Vector3(player.position.x, mapTopY, 0);
+                targetPosition = new Vector3(player.position.x, mapBottomY, 0);
+                break;
+            case 1: // 하 (아래에서 위로)
+                spawnPosition = new Vector3(player.position.x, mapBottomY, 0);
+                targetPosition = new Vector3(player.position.x, mapTopY, 0);
+                break;
+            case 2: // 좌 (왼쪽에서 오른쪽으로)
+                spawnPosition = new Vector3(mapLeftX, player.position.y, 0);
+                targetPosition = new Vector3(mapRightX, player.position.y, 0);
+                break;
+            case 3: // 우 (오른쪽에서 왼쪽으로)
+                spawnPosition = new Vector3(mapRightX, player.position.y, 0);
+                targetPosition = new Vector3(mapLeftX, player.position.y, 0);
+                break;
         }
 
         // 비둘기 생성
         GameObject pigeon = Instantiate(pigeonPrefab, spawnPosition, Quaternion.identity);
 
-        // 비둘기가 목표 위치로 이동하도록 설정
-        Rigidbody2D rb = pigeon.GetComponent<Rigidbody2D>();
-        if (rb == null)
+        // 비둘기의 PigeonMovement 스크립트에 속도와 목표 위치 설정
+        PigeonMoving movement = pigeon.GetComponent<PigeonMoving>();
+        if (movement != null)
         {
-            Debug.LogError("비둘기 프리팹에 Rigidbody2D가 없습니다!");
-            return;
+            movement.Initialize(targetPosition, pigeonSpeed);
         }
 
-        rb.gravityScale = 0; // 중력 제거
-        float speed = 5f; // 비둘기 속도
-        Vector3 directionToTarget = (targetPosition - spawnPosition).normalized; // 방향 벡터 정규화
-        rb.velocity = directionToTarget * speed; // 일정한 속도로 설정
-
-        // 비둘기 삭제 처리
-        pigeon.AddComponent<PigeonCleaner>().SetTarget(targetPosition);
+        // 다음 방향으로 변경
+        currentDirection = (currentDirection + 1) % 4;
     }
 }

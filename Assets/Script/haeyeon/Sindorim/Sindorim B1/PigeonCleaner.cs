@@ -4,19 +4,12 @@ using UnityEngine;
 
 public class PigeonCleaner : MonoBehaviour
 {
-    private Vector3 targetPosition;
-
-    public void SetTarget(Vector3 target)
+    // 정리 로직만 포함
+    public static void CleanUp(GameObject pigeon)
     {
-        targetPosition = target;
-    }
-
-    void Update()
-    {
-        // 비둘기가 목표 위치에 도달하면 삭제
-        if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
+        if (pigeon != null)
         {
-            Destroy(gameObject);
+            GameObject.Destroy(pigeon);  // 삭제 호출을 UnityEngine 네임스페이스로 지정
         }
     }
 }
