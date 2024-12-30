@@ -68,12 +68,16 @@ public class DialogueParser : MonoBehaviour
             {
                 dialogue.jihoonemo= 0; // 파싱 실패 시 기본값 설정
             }
+            if (!int.TryParse(row[11], out dialogue.kwangemo))
+            {
+                dialogue.kwangemo = 0; // 파싱 실패 시 기본값 설정
+            }
             // if (!int.TryParse(row[8], out dialogue.chosen3_ID))
             // {
             //     dialogue.chosen3_ID = 0; // 파싱 실패 시 기본값 설정
             // }
 
-            
+
 
 
             dialogue.contexts = dialogue.contexts.Replace("`", ",");
