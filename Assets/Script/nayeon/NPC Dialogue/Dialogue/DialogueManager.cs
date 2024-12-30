@@ -16,6 +16,7 @@ public class DialogueManager : MonoBehaviour
     //public TMP_Text chosen3_text;
     public static int jungminemoflag;
     public static int jihoonemoflag;
+    public static int kwangemoflag;
     //public TMP_Text chosen3_text;
 
     public int currentIdx;
@@ -83,6 +84,8 @@ public class DialogueManager : MonoBehaviour
         name.text = contextList[currentIdx].name;
         jihoonemoflag = contextList[currentIdx].jihoonemo;
         jungminemoflag = contextList[currentIdx].jungminemo;
+        kwangemoflag = contextList[currentIdx].kwangemo;
+        
         dialogue_text.alignment = TextAlignmentOptions.Left;//둘 다 왼쪽 정렬 -소현수정
         /*if (name.text == customize.playername || name.text == "System") //npc player 정렬 구분 
         {
