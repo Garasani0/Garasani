@@ -94,6 +94,8 @@ public class sibinpc : MonoBehaviour
                 case 47:
                     contextList = DataManager.instance.GetDialogue(175, 175);
                     yield return StartCoroutine(DialogueManager.instance.processing(contextList));
+                    //가위바위보에서 이겼다.
+                    GameManager.instance.AddGold(2000);
                     sibiid = 50;
                     break;
                 case 48:

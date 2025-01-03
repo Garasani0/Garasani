@@ -47,17 +47,26 @@ public class b1_subwaytag : MonoBehaviour
         
         if(DialogueManager.instance.chooseFlag == 1)
         {
-            DialogueManager.instance.name.text = "System";
-            DialogueManager.instance.dialogue_text.text = "나의 여정이 기록되었다.";
-            if (JM_b1.instance != null)
+            GameManager.instance.RemoveGold(1500);
+            if(!GameManager.instance.nomoney)
             {
-                Destroy(JM_b1.instance.gameObject);
-                JM_b1.instance = null;
-                Debug.Log("객체 삭제");
+                DialogueManager.instance.name.text = "System";
+                DialogueManager.instance.dialogue_text.text = "나의 여정이 기록되었다.";
+                if (JM_b1.instance != null)
+                {
+                    Destroy(JM_b1.instance.gameObject);
+                    JM_b1.instance = null;
+                    Debug.Log("객체 삭제");
+                }
+                SceneManager.LoadScene("Start_Cutscene");
             }
-            SceneManager.LoadScene("Start_Cutscene");
+            else
+            {
+                DialogueManager.instance.ui_dialogue.SetActive(false);
+            }
         }
-        else{
+        else
+        {
             DialogueManager.instance.ui_dialogue.SetActive(false);
         }
         DialogueManager.instance.chooseFlag = 0;

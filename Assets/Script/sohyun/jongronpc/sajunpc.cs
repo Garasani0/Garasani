@@ -57,13 +57,22 @@ public class sajunpc : MonoBehaviour
                     contextList = DataManager.instance.GetDialogue(73, 73);
                     DialogueManager.instance.processChoose(contextList);
                     yield return new WaitUntil(() => DialogueManager.instance.chooseFlag != 0);
-                    if (DialogueManager.instance.chooseFlag == 1)
+
+                    if (DialogueManager.instance.chooseFlag == 1 )
                     { //사주 보기 선택 
                       //돈 조정 
-                        sajuid = 21;
-                        firstflag = false;
+                        GameManager.instance.RemoveGold(5000);
+                        if(!GameManager.instance.nomoney)
+                        {
+                            sajuid = 21;
+                            firstflag = false;
+                        }
+                        else
+                        {
+                            sajuid = 40;
+                        }
                     }
-                    else if (DialogueManager.instance.chooseFlag == 2)
+                    else 
                     { sajuid = 40; 
                     }
                     
@@ -160,9 +169,18 @@ public class sajunpc : MonoBehaviour
                     DialogueManager.instance.processChoose(contextList);
                     yield return new WaitUntil(() => DialogueManager.instance.chooseFlag != 0);
                     if (DialogueManager.instance.chooseFlag == 1)
-                    { // 부적 사기 선택 
-                      //돈 조정 
-                        sajuid = 38;
+                    {
+                        GameManager.instance.RemoveGold(10000);
+                        if (!GameManager.instance.nomoney)
+                        {
+                            sajuid = 38;
+                            firstflag = false;
+                        }
+                        else
+                        {
+                            sajuid = 39;
+                        }
+                       
 
                     }
                     else if (DialogueManager.instance.chooseFlag == 2)
