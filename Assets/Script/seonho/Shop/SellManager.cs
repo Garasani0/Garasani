@@ -97,7 +97,7 @@ public class SellManager : MonoBehaviour
         {
             GameManager.instance.AddItem(itemSlot.item);  // 아이템을 GameManager에 추가 (구매)
                                                           //GameManager.instance.AddGold(-itemSlot.item.itemPrice);  // 아이템 가격만큼 돈 차감
-            GameManager.instance.RemoveGold(itemSlot.item.itemPrice);
+           
             Debug.Log("아이템 구매 완료: " + itemSlot.item.itemName);
             sellitem = true;
         }

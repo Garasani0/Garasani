@@ -72,7 +72,18 @@ public class dangsanb1save : MonoBehaviour
                         //재화차감
                         Player.moveflag = 1;
                         //moveflag 다시 1
-                        saveflag = true;
+                        GameManager.instance.RemoveGold(1500);
+                        if(!GameManager.instance.nomoney)
+                        {
+                            saveflag = true;
+                        }
+                        else
+                        {
+                            Vector3 currentPosition = player.transform.position;
+
+                            // Y축으로 +0.5만큼 이동
+                            player.transform.position = new Vector3(currentPosition.x, currentPosition.y + 0.5f, currentPosition.z);
+                        }
                     }
                     else if (DialogueManager.instance.chooseFlag == 2)
                     {
