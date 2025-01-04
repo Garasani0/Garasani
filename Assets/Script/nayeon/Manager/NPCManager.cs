@@ -166,6 +166,7 @@ public class NPCManager : MonoBehaviour
                         yield return StartCoroutine(DialogueManager.instance.processing(contextList));
                         GameManager.instance.RemoveItemString("안경");
                         helpCount = 2;
+                        GameManager.instance.AddGold(2000); // 도와줘서 돈을 얻음 
                     }
                     else if(helpCount == 1 && !GameManager.instance.SearchItem("안경"))
                     {

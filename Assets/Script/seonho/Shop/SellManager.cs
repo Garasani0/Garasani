@@ -91,9 +91,16 @@ public class SellManager : MonoBehaviour
     private void OnItemClicked(SellItemSlot itemSlot)
     {
         Debug.Log("아이템 구매 시도: " + itemSlot.item.itemName);
-        GameManager.instance.AddItem(itemSlot.item);  // 아이템을 GameManager에 추가 (구매)
-        GameManager.instance.AddGold(-itemSlot.item.itemPrice);  // 아이템 가격만큼 돈 차감
-        Debug.Log("아이템 구매 완료: " + itemSlot.item.itemName);
-        sellitem = true;
+       
+        GameManager.instance.RemoveGold(itemSlot.item.itemPrice);
+        if(!GameManager.instance.nomoney)
+        {
+            GameManager.instance.AddItem(itemSlot.item);  // 아이템을 GameManager에 추가 (구매)
+                                                          //GameManager.instance.AddGold(-itemSlot.item.itemPrice);  // 아이템 가격만큼 돈 차감
+           
+            Debug.Log("아이템 구매 완료: " + itemSlot.item.itemName);
+            sellitem = true;
+        }
+       
     }
 }

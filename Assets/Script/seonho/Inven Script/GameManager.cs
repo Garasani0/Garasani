@@ -5,7 +5,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    public int playerMoney;
+    public int playerMoney=5000;
+    public bool nomoney = false;
     public List<Item> inventoryItems = new List<Item>();
 
     void Awake()
@@ -85,7 +86,17 @@ public class GameManager : MonoBehaviour
 
     public void RemoveGold(int amount)
     {
-        playerMoney -= amount;
-        Debug.Log("°ñµå °¨¼Ò: " + amount);
+        if(playerMoney-amount<0)
+        {
+            nomoney = true;
+            Debug.Log("µ·ÀÌ ºÎÁ·ÇÏ´Ù");
+        }
+        else
+        {
+            nomoney = false;
+            playerMoney -= amount;
+            Debug.Log("°ñµå °¨¼Ò: " + amount);
+        }
+      
     }
 }

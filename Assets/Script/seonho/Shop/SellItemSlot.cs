@@ -34,7 +34,7 @@ public class SellItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     public void OnClick()
     {
         // 구매 처리
-        if (GameManager.instance.playerMoney >= item.itemPrice)
+       /* if (GameManager.instance.playerMoney >= item.itemPrice)
         {
             GameManager.instance.AddItem(item);  // 아이템 추가
             GameManager.instance.RemoveGold(item.itemPrice);  // 돈 감소
@@ -44,7 +44,7 @@ public class SellItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         else
         {
             Debug.Log("돈이 부족합니다.");
-        }
+        }*/
     }
 
     public void OnPointerEnter(PointerEventData eventData)
