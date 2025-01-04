@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class dangsanB1kwang : MonoBehaviour
 {
-    public static NPCdangsan instance;//참조도움
+    public static dangsanB1kwang instance;//참조도움
 
     public GameObject ui_dialogue; //말풍선
     public Dialogue[] contextList;
     private int dialogueid=8;
-    private bool twoflag = false;
+    public static bool twoflag = false;
 
     // Start is called before the first frame update
     void Update()

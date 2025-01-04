@@ -1201,7 +1201,7 @@ Transform:
   m_GameObject: {fileID: 220691147}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -669, y: -574, z: -9720}
+  m_LocalPosition: {x: -669, y: -475, z: -9720}
   m_LocalScale: {x: 108, y: 108, z: 108}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1247,8 +1247,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bodymove:
-  - {fileID: -616512541, guid: e3aeb2a5de9480740a35d99901cd0ac5, type: 3}
-  - {fileID: 1782896040, guid: e3aeb2a5de9480740a35d99901cd0ac5, type: 3}
+  - {fileID: 998422676, guid: e2714db4cd55859458f17e79bf8c8fd0, type: 3}
+  - {fileID: -667305846, guid: e2714db4cd55859458f17e79bf8c8fd0, type: 3}
 --- !u!61 &220691152
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3990,8 +3990,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bodymove:
-  - {fileID: -616512541, guid: e3aeb2a5de9480740a35d99901cd0ac5, type: 3}
-  - {fileID: 1782896040, guid: e3aeb2a5de9480740a35d99901cd0ac5, type: 3}
+  - {fileID: -1284833844, guid: 07210cb8f276839459b9090695efb609, type: 3}
+  - {fileID: -1223148332, guid: 07210cb8f276839459b9090695efb609, type: 3}
 --- !u!61 &663986674
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5746,8 +5746,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bodymove:
-  - {fileID: -616512541, guid: e3aeb2a5de9480740a35d99901cd0ac5, type: 3}
-  - {fileID: 1782896040, guid: e3aeb2a5de9480740a35d99901cd0ac5, type: 3}
+  - {fileID: 719047701, guid: b5d0c8f2b1c68a44186f06c45b165eb8, type: 3}
+  - {fileID: -1674651796, guid: b5d0c8f2b1c68a44186f06c45b165eb8, type: 3}
 --- !u!61 &1143549356
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8456,8 +8456,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bodymove:
-  - {fileID: -616512541, guid: e3aeb2a5de9480740a35d99901cd0ac5, type: 3}
-  - {fileID: 1782896040, guid: e3aeb2a5de9480740a35d99901cd0ac5, type: 3}
+  - {fileID: -1236261621, guid: effa2e855af617544bc2ca6056cf6df3, type: 3}
+  - {fileID: 2064164625, guid: effa2e855af617544bc2ca6056cf6df3, type: 3}
 --- !u!61 &1560175706
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8785,9 +8785,9 @@ GameObject:
   - component: {fileID: 1599950746}
   - component: {fileID: 1599950745}
   - component: {fileID: 1599950744}
-  - component: {fileID: 1599950743}
   - component: {fileID: 1599950747}
   - component: {fileID: 1599950748}
+  - component: {fileID: 1599950749}
   m_Layer: 0
   m_Name: "\uAD11\uC11D\uC5FD"
   m_TagString: Untagged
@@ -8810,21 +8810,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1991944759}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1599950743
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1599950741}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b22bf0d4cdaf75144898deade34ed8f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bodymove:
-  - {fileID: -1766941805, guid: 6ded79c82692a2d47850da4e50009671, type: 3}
-  - {fileID: 1262491039, guid: 6ded79c82692a2d47850da4e50009671, type: 3}
 --- !u!61 &1599950744
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8975,6 +8960,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ui_dialogue: {fileID: 1078174622}
   contextList: []
+--- !u!114 &1599950749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1599950741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ad84fcb26a668e49ab2c7558dcb5607, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bodymove:
+  - {fileID: 427487090, guid: 7d8f6803576933647a59426bee102dee, type: 3}
+  - {fileID: 1051618402, guid: 7d8f6803576933647a59426bee102dee, type: 3}
+  - {fileID: -1766941805, guid: 6ded79c82692a2d47850da4e50009671, type: 3}
+  - {fileID: 1262491039, guid: 6ded79c82692a2d47850da4e50009671, type: 3}
 --- !u!1 &1601715690
 GameObject:
   m_ObjectHideFlags: 0
@@ -9611,8 +9613,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bodymove:
-  - {fileID: -616512541, guid: e3aeb2a5de9480740a35d99901cd0ac5, type: 3}
-  - {fileID: 1782896040, guid: e3aeb2a5de9480740a35d99901cd0ac5, type: 3}
+  - {fileID: -867401208, guid: d2fa125358a401549866e23d5123ae9e, type: 3}
+  - {fileID: 1414917117, guid: d2fa125358a401549866e23d5123ae9e, type: 3}
 --- !u!61 &1768368890
 BoxCollider2D:
   m_ObjectHideFlags: 0
