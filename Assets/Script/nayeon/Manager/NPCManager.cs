@@ -146,6 +146,7 @@ public class NPCManager : MonoBehaviour
                 case "물건을 훔치는 노인":
                     contextList = DataManager.instance.GetDialogue(5, 11);
                     yield return StartCoroutine(DialogueManager.instance.processing(contextList));
+                    GameManager.instance.RemoveItemRandom(); // 랜덤으로 아이템 하나 삭제 
                     break;
                 
                 case "헛소리 하는 노인":

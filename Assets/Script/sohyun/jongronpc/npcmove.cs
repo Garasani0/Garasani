@@ -31,12 +31,12 @@ public class npcmove : MonoBehaviour
             if (frontflag == 1)
             {
                 transform.position = new Vector3(transform.position.x,
-                              transform.position.y + 0.05f, 0);
+                              transform.position.y + 0.01f, 0);
             }
             else
             {
                 transform.position = new Vector3(transform.position.x,
-                              transform.position.y - 0.05f, 0);
+                              transform.position.y - 0.01f, 0);
             }
         }
    

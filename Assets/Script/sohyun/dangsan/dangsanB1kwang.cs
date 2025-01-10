@@ -10,6 +10,7 @@ public class dangsanB1kwang : MonoBehaviour
     public Dialogue[] contextList;
     private int dialogueid=8;
     public static bool twoflag = false;
+    public Item book;
 
     // Start is called before the first frame update
     void Update()
@@ -21,9 +22,8 @@ public class dangsanB1kwang : MonoBehaviour
     void Start()
     {
 
-      
 
-
+       
 
 
     }
@@ -94,8 +94,11 @@ public class dangsanB1kwang : MonoBehaviour
         }
 
         ui_dialogue.SetActive(false);
-        //다른 아이템 장착시
-        twoflag = true;
+        if(InventoryManager.instance.equippedItem!=null) // 아이템을 장착하고 말을 걸었다면 
+        {
+            twoflag = true;
+        }
+        
        
 
     }
@@ -127,6 +130,8 @@ public class dangsanB1kwang : MonoBehaviour
 
                     contextList = DataManager.instance.GetDialogue(23, 24);
                     yield return StartCoroutine(DialogueManager.instance.processing(contextList));
+                    // 책 아이템 주기
+                    InventoryManager.instance.AddItemToSlot(book);
                     dialogueid = 14;
                     break;
                 case 13:

@@ -8960,6 +8960,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ui_dialogue: {fileID: 1078174622}
   contextList: []
+  book: {fileID: 11400000, guid: 5e3bc71e262ed5046bb0b2d7537b8df3, type: 2}
 --- !u!114 &1599950749
 MonoBehaviour:
   m_ObjectHideFlags: 0

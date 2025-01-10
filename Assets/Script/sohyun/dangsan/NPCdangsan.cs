@@ -14,7 +14,7 @@ public class NPCdangsan : MonoBehaviour
     // Start is called before the first frame update
     void Update()
     {
-       
+     
     }
    
 
