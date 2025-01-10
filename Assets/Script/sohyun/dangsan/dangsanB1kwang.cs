@@ -99,6 +99,8 @@ public class dangsanB1kwang : MonoBehaviour
             twoflag = true;
         }
         
+        
+        
        
 
     }
