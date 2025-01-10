@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public int playerMoney=5000;
     public bool nomoney = false;
+   
     public List<Item> inventoryItems = new List<Item>();
 
     void Awake()
@@ -62,6 +64,23 @@ public class GameManager : MonoBehaviour
         {
             inventoryItems.Remove(item);
         }
+    }
+    public void RemoveItemRandom()
+    {
+        if(inventoryItems.Count>0)
+        {
+
+            List<Item> itemsToRemove = new List<Item>();
+            int randomint = Random.Range(0, inventoryItems.Count);
+            itemsToRemove.Add(inventoryItems[randomint]);
+
+
+            foreach (Item item in itemsToRemove)
+            {
+                inventoryItems.Remove(item);
+            }
+        }
+      
     }
     public void AddGold(int amount)
     {
