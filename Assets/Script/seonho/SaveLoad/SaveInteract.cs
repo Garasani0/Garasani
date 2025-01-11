@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class SaveInteract : MonoBehaviour
 {
-   public TMP_Text content;
+    /*public TMP_Text content;
     public GameObject talksqu;
     public GameObject button;
     public TMP_Text who;
@@ -15,11 +15,115 @@ public class SaveInteract : MonoBehaviour
 
     private int gointer = 0;
     private string interobj;
-    private Vector2 pos;
+    private Vector2 pos;*/
 
     public GameObject SaveUI;
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public GameObject ui_dialogue; //말풍선
+    public GameObject player;
+    public Dialogue[] contextList;
+    private int dialogueid = 24;
+    public static bool saveflag = false;
+
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+
+
+        if (other.CompareTag("Player") && saveflag == false)
+        {
+            Debug.Log("Player entered the trigger zone!");
+            Player.moveflag = 0;
+            StartCoroutine(NpcRoutine());
+        }
+    }
+    public IEnumerator NpcRoutine()
+    {
+        ui_dialogue.SetActive(true);
+        while (dialogueid < 26)
+        {
+            switch (dialogueid)
+            {
+                case 24:
+                    if (saveflag == false)
+                    {
+                        
+
+                        
+
+                        contextList = DataManager.instance.GetDialogue(45, 45);
+                        DialogueManager.instance.processChoose(contextList);
+                        yield return new WaitUntil(() => DialogueManager.instance.chooseFlag != 0);
+                        if (DialogueManager.instance.chooseFlag == 1)
+                        {
+                            if (jihoon_B2.jihoonmove == 1)// 지훈이를 데려간다면 
+                            {
+                                dialogueid = 26;
+                                //재화차감
+                                Player.moveflag = 1;
+                                //moveflag 다시 1
+                                GameManager.instance.RemoveGold(1500);
+                                if (!GameManager.instance.nomoney)
+                                {
+                                    saveflag = true; // 돈 있으면 세이브 완료
+                                }
+                                else // 없으면 save 불가 
+                                {
+                                    Vector3 currentPosition = player.transform.position;
+
+                                    // X축으로 +0.5만큼 이동
+                                    player.transform.position = new Vector3(currentPosition.x + 0.5f, currentPosition.y, currentPosition.z);
+                                }
+                            }
+                            else
+                            {
+                                dialogueid = 25;
+                            }
+                        }
+                        else if (DialogueManager.instance.chooseFlag == 2)
+                        {
+                            dialogueid = 26;
+
+                            Player.moveflag = 1;
+                            Vector3 currentPosition = player.transform.position;
+
+                            // Y축으로 +0.5만큼 이동
+                            player.transform.position = new Vector3(currentPosition.x, currentPosition.y + 0.5f, currentPosition.z);
+
+                        }
+
+                        DialogueManager.instance.chooseFlag = 0;
+
+
+                    }
+                  
+
+                    break;
+                case 25:
+                    contextList = DataManager.instance.GetDialogue(46, 46);
+                    yield return StartCoroutine(DialogueManager.instance.processing(contextList));
+                    dialogueid = 26;
+                    break;
+                default:
+                    dialogueid = 26;
+                    break;
+
+            }
+
+
+        }
+
+        ui_dialogue.SetActive(false);
+        if (saveflag == false)
+        {
+            dialogueid = 24;
+        }
+
+
+    }
+
+
+    /*private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.name == "basebody" || collision.gameObject.name == "Player")
         {
@@ -119,32 +223,43 @@ public class SaveInteract : MonoBehaviour
             ClearOptions();
             content.text = "";
         }
-    }
+    }*/
 
    void Start()
     {
-        talksqu.SetActive(false);
-        options.SetActive(false);
-        button.SetActive(true);
+        //talksqu.SetActive(false);
+        //options.SetActive(false);
+        //button.SetActive(true);
         SaveUI.SetActive(false);
 
         customize.sceneflag = 2;
         Player.moveflag = 1;
-    }
-    
-    void Update()
-    {
-       
-        if (interobj=="개찰구") //이 부분이 제 코드와 충돌이 있어서 살짝 수정했습니다 !
+        player = GameObject.Find("Player");
+
+        if (player != null)
         {
-            // 선택지 처리
-            if (DialogueManager.instance.chooseFlag > 0)
-            {
-                //ProcessChoice();  // 선택지에 따른 처리
-                DialogueManager.instance.chooseFlag = 0;  // 처리 후 플래그 초기화
-            }
+            Debug.Log("Player object found!");
         }
-    
-       
+        else
+        {
+            Debug.Log("Player object not found!");
+        }
+
     }
+
+    /* void Update()
+     {
+
+         if (interobj=="개찰구") //이 부분이 제 코드와 충돌이 있어서 살짝 수정했습니다 !
+         {
+             // 선택지 처리
+             if (DialogueManager.instance.chooseFlag > 0)
+             {
+                 //ProcessChoice();  // 선택지에 따른 처리
+                 DialogueManager.instance.chooseFlag = 0;  // 처리 후 플래그 초기화
+             }
+         }
+
+
+     }*/
 }

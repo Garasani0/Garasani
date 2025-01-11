@@ -225,7 +225,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &56116099
 Transform:
   m_ObjectHideFlags: 0
@@ -627,6 +627,7 @@ GameObject:
   - component: {fileID: 199831645}
   - component: {fileID: 199831646}
   - component: {fileID: 199831647}
+  - component: {fileID: 199831648}
   m_Layer: 0
   m_Name: "\uB378\uB9AC\uB9CC\uC96C \uAC00\uAC8C"
   m_TagString: Untagged
@@ -775,8 +776,22 @@ MonoBehaviour:
   ui_dialogue: {fileID: 291052664}
   contextList: []
   dialogid: 0
-  manjufirst: 0
-  clothesfirst: 0
+--- !u!114 &199831648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 199831640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93ee5c5fc0a85c345878ab7a998dea62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Items:
+  - {fileID: 11400000, guid: 24373c72f8641434097e186791c3adb5, type: 2}
+  - {fileID: 11400000, guid: 6518ead721276a84eb4196c8dabb79e6, type: 2}
+  ShopUI: {fileID: 431451912}
 --- !u!1 &206811694
 GameObject:
   m_ObjectHideFlags: 0
@@ -1052,7 +1067,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -1080,14 +1095,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e769f166667d51745adc1c1e7e442116, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  content: {fileID: 1584694867}
-  talksqu: {fileID: 291052664}
-  button: {fileID: 1581752488}
-  who: {fileID: 765495394}
-  option1: {fileID: 672223666}
-  option2: {fileID: 1543606013}
-  options: {fileID: 159257034}
   SaveUI: {fileID: 967399975276659032}
+  ui_dialogue: {fileID: 291052664}
+  player: {fileID: 0}
+  contextList: []
 --- !u!1 &291052664
 GameObject:
   m_ObjectHideFlags: 0
@@ -1297,7 +1308,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -1325,14 +1336,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e769f166667d51745adc1c1e7e442116, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  content: {fileID: 1584694867}
-  talksqu: {fileID: 291052664}
-  button: {fileID: 1581752488}
-  who: {fileID: 765495394}
-  option1: {fileID: 672223666}
-  option2: {fileID: 1543606013}
-  options: {fileID: 159257034}
   SaveUI: {fileID: 967399975276659032}
+  ui_dialogue: {fileID: 291052664}
+  player: {fileID: 0}
+  contextList: []
 --- !u!1 &322046657
 GameObject:
   m_ObjectHideFlags: 0
@@ -1345,7 +1352,6 @@ GameObject:
   - component: {fileID: 322046659}
   - component: {fileID: 322046660}
   - component: {fileID: 322046661}
-  - component: {fileID: 322046662}
   m_Layer: 0
   m_Name: "\uAC1C\uCC30\uAD6C"
   m_TagString: Untagged
@@ -1449,7 +1455,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -1477,27 +1483,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e769f166667d51745adc1c1e7e442116, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  content: {fileID: 1584694867}
-  talksqu: {fileID: 291052664}
-  button: {fileID: 1581752488}
-  who: {fileID: 765495394}
-  option1: {fileID: 672223666}
-  option2: {fileID: 1543606013}
-  options: {fileID: 159257034}
   SaveUI: {fileID: 967399975276659032}
---- !u!114 &322046662
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 322046657}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8a88a8b900283940b19965e274550af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ui_dialogue: {fileID: 0}
+  ui_dialogue: {fileID: 291052664}
   player: {fileID: 0}
   contextList: []
 --- !u!1 &340515598
@@ -1841,9 +1828,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2396924589346009839, guid: 704c590884403fa42b26a8609efa4c95, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3445845223735518772, guid: 704c590884403fa42b26a8609efa4c95, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.00002227385
+      value: 0.0009770624
       objectReference: {fileID: 0}
     - target: {fileID: 4423172228593482312, guid: 704c590884403fa42b26a8609efa4c95, type: 3}
       propertyPath: m_AnchorMax.x
@@ -3006,6 +2997,7 @@ GameObject:
   - component: {fileID: 713370141}
   - component: {fileID: 713370143}
   - component: {fileID: 713370144}
+  - component: {fileID: 713370145}
   m_Layer: 0
   m_Name: "\uD3B8\uC758\uC810"
   m_TagString: Untagged
@@ -3226,8 +3218,22 @@ MonoBehaviour:
   ui_dialogue: {fileID: 291052664}
   contextList: []
   dialogid: 0
-  manjufirst: 0
-  clothesfirst: 0
+--- !u!114 &713370145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 713370136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93ee5c5fc0a85c345878ab7a998dea62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Items:
+  - {fileID: 11400000, guid: 7b37ce50584218546b3030cec6aaa8aa, type: 2}
+  - {fileID: 11400000, guid: 62ac67b93c21fc04f9b247fe52f3dcea, type: 2}
+  ShopUI: {fileID: 431451912}
 --- !u!1 &749483847
 GameObject:
   m_ObjectHideFlags: 0
@@ -4403,6 +4409,7 @@ GameObject:
   - component: {fileID: 1098271452}
   - component: {fileID: 1098271453}
   - component: {fileID: 1098271454}
+  - component: {fileID: 1098271455}
   m_Layer: 0
   m_Name: "\uC637 \uAC00\uAC8C"
   m_TagString: Untagged
@@ -4577,8 +4584,23 @@ MonoBehaviour:
   ui_dialogue: {fileID: 291052664}
   contextList: []
   dialogid: 0
-  manjufirst: 0
-  clothesfirst: 0
+--- !u!114 &1098271455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1098271447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93ee5c5fc0a85c345878ab7a998dea62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Items:
+  - {fileID: 11400000, guid: 5237d17e14e84b14caea527c50b27de7, type: 2}
+  - {fileID: 11400000, guid: 50407eb92e3775a4f9a38d08bf1e491c, type: 2}
+  - {fileID: 11400000, guid: 918cc12a6c4f0de4faa62707abfff6f8, type: 2}
+  ShopUI: {fileID: 431451912}
 --- !u!1 &1122762307
 GameObject:
   m_ObjectHideFlags: 0
@@ -6721,7 +6743,7 @@ BoxCollider2D:
     serializedVersion: 2
     m_Bits: 4294967295
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
@@ -6748,14 +6770,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e769f166667d51745adc1c1e7e442116, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  content: {fileID: 1584694867}
-  talksqu: {fileID: 291052664}
-  button: {fileID: 1581752488}
-  who: {fileID: 765495394}
-  option1: {fileID: 672223666}
-  option2: {fileID: 1543606013}
-  options: {fileID: 159257034}
   SaveUI: {fileID: 967399975276659032}
+  ui_dialogue: {fileID: 291052664}
+  player: {fileID: 0}
+  contextList: []
 --- !u!1 &1805594329
 GameObject:
   m_ObjectHideFlags: 0
@@ -7219,8 +7237,6 @@ MonoBehaviour:
   ui_dialogue: {fileID: 291052664}
   contextList: []
   dialogid: 0
-  manjufirst: 0
-  clothesfirst: 0
 --- !u!1 &1972136290
 GameObject:
   m_ObjectHideFlags: 0
@@ -7715,7 +7731,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2114991615
 Transform:
   m_ObjectHideFlags: 0
@@ -8028,8 +8044,6 @@ MonoBehaviour:
   ui_dialogue: {fileID: 291052664}
   contextList: []
   dialogid: 0
-  manjufirst: 0
-  clothesfirst: 0
 --- !u!224 &146025410908281270
 RectTransform:
   m_ObjectHideFlags: 0
