@@ -8,8 +8,8 @@ public class jongronpcM : MonoBehaviour
      public GameObject ui_dialogue; //¸»Ç³¼±
      public Dialogue[] contextList;
      public int dialogid=0;
-    public int manjufirst = 0;
-    public int clothesfirst = 0;
+    public static int manjufirst = 0;
+    public static int clothesfirst = 0;
      // Start is called before the first frame update
      void Start()
      {
