@@ -76,12 +76,12 @@ public class NPCdangsan : MonoBehaviour
                 yield return StartCoroutine(DialogueManager.instance.processing(contextList));
                 break;
 
-            case "노인 2":
+                case "노인 2":
                 contextList = DataManager.instance.GetDialogue(14, 18);
                 yield return StartCoroutine(DialogueManager.instance.processing(contextList));
                 break;
 
-            case "노인 3":
+                case "노인 3":
                 contextList = DataManager.instance.GetDialogue(14, 18);
                 yield return StartCoroutine(DialogueManager.instance.processing(contextList));
                 break;

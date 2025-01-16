@@ -12,8 +12,9 @@ public class DialogueManager : MonoBehaviour
     public TMP_Text name;
     public TMP_Text chosen1_text;
     public TMP_Text chosen2_text;
-  
-    //public TMP_Text chosen3_text;
+    public TMP_Text chosen3_text;
+    public TMP_Text chosen4_text;
+
     public static int jungminemoflag;
     public static int jihoonemoflag;
     public static int kwangemoflag;
