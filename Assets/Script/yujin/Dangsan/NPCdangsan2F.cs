@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -15,9 +16,9 @@ public class NPCdangsan2F : MonoBehaviour
     // Start is called before the first frame update
     void Update()
     {
-       
+        
     }
-   
+
 
     void Start()
     {
@@ -37,7 +38,7 @@ public class NPCdangsan2F : MonoBehaviour
 
     void OnMouseDown(){
 
-        Debug.Log("NPC clicked");
+        Debug.Log("NPC clicked " + gameObject.name);
         StartCoroutine(NpcRoutine());
     }
 
@@ -47,88 +48,42 @@ public class NPCdangsan2F : MonoBehaviour
         ui_dialogue.SetActive(true);
         switch (gameObject.name) {
 
-
-            case "계환숙":
-                contextList = DataManager.instance.GetDialogue(1, 1);
-                DialogueManager.instance.processChoose(contextList);
-                yield return new WaitUntil(() => DialogueManager.instance.chooseFlag != 0);
-
-                if (DialogueManager.instance.chooseFlag == 1)
-                { dialogueID = 2; }
-
-                else if (DialogueManager.instance.chooseFlag == 2)
-                { dialogueID = 3; }
-
-                DialogueManager.instance.chooseFlag = 0;
-
-                contextList = DataManager.instance.GetDialogue(4, 4);
-                DialogueManager.instance.processChoose(contextList);
-                yield return new WaitUntil(() => DialogueManager.instance.chooseFlag != 0);
-                if (DialogueManager.instance.chooseFlag == 1)
-                {
-                    dialogueID = 5;
-                }
-                else if (DialogueManager.instance.chooseFlag == 2)
-                {
-                    dialogueID = 5;
-                }
-                else if (DialogueManager.instance.chooseFlag == 3)
-                {
-                    dialogueID = 5;
-                }
-                else if (DialogueManager.instance.chooseFlag == 4)
-                {
-                    dialogueID = 6;
-                }
-                else
-                {
-                    Debug.LogWarning("Unexpected chooseFlag value: " + DialogueManager.instance.chooseFlag);
-                }
-                DialogueManager.instance.chooseFlag = 0;
-
+                case "오탁훈":
+                    contextList = DataManager.instance.GetDialogue(8, 9);
+                    yield return StartCoroutine(DialogueManager.instance.processing(contextList));
+                    DialogueManager.instance.chooseFlag = 0;
                 break;
 
-
-            case "오탁훈":
-                contextList = DataManager.instance.GetDialogue(7, 7);
+                case "나다빈":
+                contextList = DataManager.instance.GetDialogue(8, 9);
                 yield return StartCoroutine(DialogueManager.instance.processing(contextList));
                 DialogueManager.instance.chooseFlag = 0;
                 break;
 
-            case "나다빈":
-                contextList = DataManager.instance.GetDialogue(7, 7);
-                yield return StartCoroutine(DialogueManager.instance.processing(contextList));
-                DialogueManager.instance.chooseFlag = 0;
-                break;
-
-            case "인호수":
-
-                contextList = DataManager.instance.GetDialogue(8, 8);
+               
+                case "인호수":
+                contextList = DataManager.instance.GetDialogue(10, 10);
                 DialogueManager.instance.processChoose(contextList);
                 yield return new WaitUntil(() => DialogueManager.instance.chooseFlag != 0);
-
-
+                Debug.Log("ChooseFlag after case 인호수: " + DialogueManager.instance.chooseFlag);
                 if (DialogueManager.instance.chooseFlag == 1)
-                { dialogueID = 9; }
-
+                    dialogueID = 11;
                 else if (DialogueManager.instance.chooseFlag == 2)
-                { dialogueID = 10; }
-
+                    dialogueID = 12;
                 DialogueManager.instance.chooseFlag = 0;
                 break;
-
 
 
                 case "김나중" :
-                    contextList = DataManager.instance.GetDialogue(11, 11);
+                    contextList = DataManager.instance.GetDialogue(14, 15);
                     yield return StartCoroutine(DialogueManager.instance.processing(contextList));
-                DialogueManager.instance.chooseFlag = 0;
+                    DialogueManager.instance.chooseFlag = 0;
                 break;
 
                 case "마부장":
-                    contextList = DataManager.instance.GetDialogue(11, 11);
+                    contextList = DataManager.instance.GetDialogue(14, 15);
                     yield return StartCoroutine(DialogueManager.instance.processing(contextList));
-                DialogueManager.instance.chooseFlag = 0;
+                    DialogueManager.instance.chooseFlag = 0;
                 break;
 
 

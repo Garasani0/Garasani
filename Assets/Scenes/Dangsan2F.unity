@@ -150,7 +150,7 @@ Transform:
   m_GameObject: {fileID: 7015282}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 443, y: 1091, z: -9719.999}
+  m_LocalPosition: {x: 443, y: 1091, z: -9718}
   m_LocalScale: {x: 108, y: 108, z: 108}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -279,7 +279,7 @@ Transform:
   m_GameObject: {fileID: 91300452}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1491, y: -1209, z: -9719.999}
+  m_LocalPosition: {x: 1491, y: -1209, z: -9718}
   m_LocalScale: {x: 108, y: 108, z: 108}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -363,7 +363,7 @@ Transform:
   m_GameObject: {fileID: 114824496}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1253, y: 595, z: -9719.999}
+  m_LocalPosition: {x: -1253, y: 595, z: -9718}
   m_LocalScale: {x: 108, y: 108, z: 108}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -433,7 +433,7 @@ GameObject:
   - component: {fileID: 251768068}
   - component: {fileID: 251768067}
   m_Layer: 0
-  m_Name: Main Camera (1)
+  m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -607,9 +607,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: textani, Assembly-CSharp
-        m_MethodName: Onclick
+      - m_Target: {fileID: 1344005740}
+        m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+        m_MethodName: OnClickChoose
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1320,7 +1320,7 @@ Transform:
   m_GameObject: {fileID: 572808678}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 665, y: 744, z: -9720}
+  m_LocalPosition: {x: 561, y: 744, z: -9720}
   m_LocalScale: {x: 108, y: 108, z: 108}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2852,9 +2852,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: textani, Assembly-CSharp
-        m_MethodName: Onclick
+      - m_Target: {fileID: 1344005740}
+        m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+        m_MethodName: OnClickChoose
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4177,7 +4177,7 @@ Transform:
   m_GameObject: {fileID: 1324567121}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1253, y: -368, z: -9719.999}
+  m_LocalPosition: {x: -1253, y: -368, z: -9718}
   m_LocalScale: {x: 108, y: 108, z: 108}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4264,7 +4264,7 @@ Transform:
   m_GameObject: {fileID: 1329035926}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 865, y: 744, z: -9720}
+  m_LocalPosition: {x: 812, y: 744, z: -9720}
   m_LocalScale: {x: 108, y: 108, z: 108}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4468,6 +4468,8 @@ MonoBehaviour:
   name: {fileID: 1539516997}
   chosen1_text: {fileID: 1751157820}
   chosen2_text: {fileID: 1391470805}
+  chosen3_text: {fileID: 252801925}
+  chosen4_text: {fileID: 985229249}
   currentIdx: 0
   IsDialogueFinished: 0
   contextList: []
@@ -5285,9 +5287,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: textani, Assembly-CSharp
-        m_MethodName: Onclick
+      - m_Target: {fileID: 1344005740}
+        m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+        m_MethodName: OnClickChoose
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5654,7 +5656,7 @@ Transform:
   m_GameObject: {fileID: 1596671630}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 444, y: -239, z: -9719.999}
+  m_LocalPosition: {x: 444, y: -239, z: -9718}
   m_LocalScale: {x: 108, y: 108, z: 108}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5768,10 +5770,10 @@ GameObject:
   - component: {fileID: 1610908392}
   - component: {fileID: 1610908398}
   - component: {fileID: 1610908397}
-  - component: {fileID: 1610908396}
   - component: {fileID: 1610908395}
   - component: {fileID: 1610908394}
-  - component: {fileID: 1610908399}
+  - component: {fileID: 1610908401}
+  - component: {fileID: 1610908402}
   m_Layer: 7
   m_Name: "\uACC4\uD658\uC219"
   m_TagString: NPC
@@ -5788,7 +5790,7 @@ Transform:
   m_GameObject: {fileID: 1610908391}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -624, y: 62, z: -9720}
+  m_LocalPosition: {x: -818, y: -14, z: -9720}
   m_LocalScale: {x: 108, y: 108, z: 108}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5821,51 +5823,6 @@ MonoBehaviour:
   bodymove:
   - {fileID: -847827183, guid: 070129763bb5ee74a837fef855a8f7d1, type: 3}
   - {fileID: 226174461, guid: 070129763bb5ee74a837fef855a8f7d1, type: 3}
---- !u!61 &1610908396
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1610908391}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.28, y: 2.56}
-    newSize: {x: 1.28, y: 2.56}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 2, y: 3}
-  m_EdgeRadius: 0
 --- !u!50 &1610908397
 Rigidbody2D:
   serializedVersion: 4
@@ -5945,7 +5902,42 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1610908399
+--- !u!58 &1610908401
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1610908391}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 2.25
+--- !u!114 &1610908402
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5954,10 +5946,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1610908391}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 068bccfa10a8bff428715c3b406d95ad, type: 3}
+  m_Script: {fileID: 11500000, guid: 478a7d68cbecc8143b07040bbd00c880, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  helpCount: 0
   ui_dialogue: {fileID: 936375706}
   contextList: []
 --- !u!1 &1624189036
@@ -7453,8 +7444,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bodymove:
-  - {fileID: -616512541, guid: e3aeb2a5de9480740a35d99901cd0ac5, type: 3}
-  - {fileID: 1782896040, guid: e3aeb2a5de9480740a35d99901cd0ac5, type: 3}
+  - {fileID: 442340461, guid: 9d468e152df1eb840b1aeb3773631250, type: 3}
+  - {fileID: -646836816, guid: 9d468e152df1eb840b1aeb3773631250, type: 3}
 --- !u!61 &1922586908
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7802,9 +7793,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: textani, Assembly-CSharp
-        m_MethodName: Onclick
+      - m_Target: {fileID: 1344005740}
+        m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+        m_MethodName: OnClickChoose
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
