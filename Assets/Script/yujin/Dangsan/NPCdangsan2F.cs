@@ -12,6 +12,7 @@ public class NPCdangsan2F : MonoBehaviour
     public GameObject ui_dialogue; //말풍선
     public Dialogue[] contextList;
     private int dialogueID = 1;
+    
 
     // Start is called before the first frame update
     void Update()
@@ -61,7 +62,7 @@ public class NPCdangsan2F : MonoBehaviour
                 break;
 
                
-                case "인호수":
+                /*case "인호수":
                 contextList = DataManager.instance.GetDialogue(10, 10);
                 DialogueManager.instance.processChoose(contextList);
                 yield return new WaitUntil(() => DialogueManager.instance.chooseFlag != 0);
@@ -71,7 +72,7 @@ public class NPCdangsan2F : MonoBehaviour
                 else if (DialogueManager.instance.chooseFlag == 2)
                     dialogueID = 12;
                 DialogueManager.instance.chooseFlag = 0;
-                break;
+                break;*/
 
 
                 case "김나중" :

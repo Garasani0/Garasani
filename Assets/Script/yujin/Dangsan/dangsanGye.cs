@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngineInternal;
 
 public class DangsanGye : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class DangsanGye : MonoBehaviour
     public Dialogue[] contextList; // 대화 내용
     private int dialogueID = 1;
     private bool hasInteracted = false; // 일회성 처리 플래그
+   
 
     void Start()
     { 
@@ -20,20 +22,30 @@ public class DangsanGye : MonoBehaviour
     // 플레이어가 Trigger 범위에 들어왔을 때
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!hasInteracted && collision.CompareTag("Player")) // Player 태그 확인
+        if (collision.CompareTag("Player")) // Player 태그 확인 
         {
-            hasInteracted = true; // 대화가 발생했음을 표시
-            StartCoroutine(StartDialogue());
+            if(hasInteracted==false)
+            {
+              
+                hasInteracted = true; // 대화가 발생했음을 표시
+                StartCoroutine(StartDialogue());
+            }
+
+          
         }
     }
+    void Update()
+    {
+        Debug.Log(dialogueID);   
+    }
 
-    /*void OnMouseDown()
+    void OnMouseDown()
     {
 
         Debug.Log("NPC clicked " + gameObject.name);
-        StartCoroutine(GyeDial());
+      
     }
-    */
+    
     // 대화 시작 코루틴
     private IEnumerator StartDialogue()
     {
@@ -41,13 +53,13 @@ public class DangsanGye : MonoBehaviour
         Debug.Log("코루틴 시작");
         ui_dialogue.SetActive(true);
 
-        while (dialogueID < 7)
+        while (dialogueID < 8)
         {
             Debug.Log("Current dialogueID: " + dialogueID);
             switch (dialogueID)
             {
                 case (1):
-               
+
                     contextList = DataManager.instance.GetDialogue(1, 1);
                     DialogueManager.instance.processChoose(contextList);
                     yield return new WaitUntil(() => DialogueManager.instance.chooseFlag != 0);
@@ -63,24 +75,17 @@ public class DangsanGye : MonoBehaviour
 
                 case (2):
                     contextList = DataManager.instance.GetDialogue(2, 2);
-                    DialogueManager.instance.processChoose(contextList);
-                    yield return new WaitUntil(() => DialogueManager.instance.clickFlag);
-                    DialogueManager.instance.clickFlag = false;
-                    dialogueID = 4;
-                    
-                    break;
+                    yield return StartCoroutine(DialogueManager.instance.processing(contextList));
+                    dialogueID = 3;
 
+                    break;
                 case (3):
                     contextList = DataManager.instance.GetDialogue(3, 4);
-                    DialogueManager.instance.processChoose(contextList);
-                    yield return new WaitUntil(() => DialogueManager.instance.clickFlag);
-                    DialogueManager.instance.clickFlag = false;
+                    yield return StartCoroutine(DialogueManager.instance.processing(contextList));
                     dialogueID = 4;
-                    
                     break;
-
                 case (4):
-                    contextList = DataManager.instance.GetDialogue(4, 5);
+                    contextList = DataManager.instance.GetDialogue(5, 5);
                     DialogueManager.instance.processChoose(contextList);
                     yield return new WaitUntil(() => DialogueManager.instance.chooseFlag != 0);
                     Debug.Log("ChooseFlag after case 1: " + DialogueManager.instance.chooseFlag);
@@ -98,24 +103,31 @@ public class DangsanGye : MonoBehaviour
                 case (6):
                     contextList = DataManager.instance.GetDialogue(6, 6);
                     yield return StartCoroutine(DialogueManager.instance.processing(contextList));
-                    dialogueID = 6;
+                    dialogueID = 8;
                     break;
 
                 case (7):
                     contextList = DataManager.instance.GetDialogue(7, 7);
                     yield return StartCoroutine(DialogueManager.instance.processing(contextList));
-                    dialogueID = 7;
+                    dialogueID = 8;
+                    break;
+                case (8):
                     break;
 
                 default:
-                    
+
                     break;
 
-            }
-        }
-        dialogueID = 0; 
-        ui_dialogue.SetActive(false);
 
+
+
+
+            }
+
+        }
+        ui_dialogue.SetActive(false);
     }
+
+  
     
 }
