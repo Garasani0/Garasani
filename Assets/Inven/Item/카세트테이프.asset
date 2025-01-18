@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4ee08332301014a90831535ae82567b4, type: 3}
-  m_Name: "\uC2E0\uBB38\uC9C0"
+  m_Name: "\uCE74\uC138\uD2B8\uD14C\uC774\uD504"
   m_EditorClassIdentifier: 
-  itemName: "\uC2E0\uBB38\uC9C0"
-  itemSprite: {fileID: 21300000, guid: f47be447995ea46f1a150158447d7b9e, type: 3}
+  itemName: "\uCE74\uC138\uD2B8\uD14C\uC774\uD504"
+  itemSprite: {fileID: 0}
   itemDescription: 
   isEquipable: 0
   itemCount: 0

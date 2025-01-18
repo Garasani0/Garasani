@@ -25,7 +25,7 @@ public class NPCdangsan2F : MonoBehaviour
     {
 
         ui_dialogue.SetActive(false);
-        DataManager.instance.csv_FileName = "dangsan2F";
+        DataManager.instance.csv_FileName = "Dangsan2F";
         DataManager.instance.DialogueLoad(); // CSV 파일 로드
         Debug.Log("csv load");
         Player.moveflag = 1;

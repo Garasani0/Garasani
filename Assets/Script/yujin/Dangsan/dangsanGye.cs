@@ -5,11 +5,13 @@ using UnityEngineInternal;
 
 public class DangsanGye : MonoBehaviour
 {
+    public Item item;  // 받을 아이템 데이터
     public GameObject ui_dialogue; // 말풍선 UI
     public Dialogue[] contextList; // 대화 내용
     private int dialogueID = 1;
     private bool hasInteracted = false; // 일회성 처리 플래그
-   
+    private bool hasGivenItem = false; // 아이템을 이미 주었는지 체크하는 변수
+
 
     void Start()
     { 
@@ -36,7 +38,7 @@ public class DangsanGye : MonoBehaviour
     }
     void Update()
     {
-        Debug.Log(dialogueID);   
+        //Debug.Log(dialogueID);   
     }
 
     void OnMouseDown()
@@ -104,14 +106,32 @@ public class DangsanGye : MonoBehaviour
                     contextList = DataManager.instance.GetDialogue(6, 6);
                     yield return StartCoroutine(DialogueManager.instance.processing(contextList));
                     dialogueID = 8;
+
+                    if (!hasGivenItem)
+                    {
+                        InventoryManager inventoryManager = FindObjectOfType<InventoryManager>();
+                        if (inventoryManager != null)
+                        {
+                            inventoryManager.AddItemToSlot(item); // 아이템을 인벤토리에 추가
+                            Debug.Log($"아이템 {item.itemName} 획득!");
+                            hasGivenItem = true; // 아이템을 주었다는 플래그 설정
+                        }
+                    }
+
                     break;
 
                 case (7):
                     contextList = DataManager.instance.GetDialogue(7, 7);
                     yield return StartCoroutine(DialogueManager.instance.processing(contextList));
                     dialogueID = 8;
+
+                   
                     break;
                 case (8):
+                    
+                    break;
+
+
                     break;
 
                 default:

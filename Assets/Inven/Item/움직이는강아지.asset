@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: "\uC6C0\uC9C1\uC774\uB294\uAC15\uC544\uC9C0"
   m_EditorClassIdentifier: 
   itemName: "\uC6C0\uC9C1\uC774\uB294\uAC15\uC544\uC9C0"
-  itemImage: {fileID: 21300000, guid: 003570b54e13d456587a159dda47035f, type: 3}
-  itemInfo: "\uC7A1\uC0C1\uC778\uC5D0\uAC8C \uC0B0 \uADC0\uC5EC\uC6B4 \uAC15\uC544\uC9C0
-    \uC7A5\uB09C\uAC10\uC774\uB2E4."
+  itemSprite: {fileID: 21300000, guid: 003570b54e13d456587a159dda47035f, type: 3}
+  itemDescription: 
+  isEquipable: 0
+  itemCount: 0
+  itemPrice: 0
